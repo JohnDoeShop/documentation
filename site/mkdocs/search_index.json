@@ -1072,13 +1072,103 @@
         }, 
         {
             "location": "/checkout/", 
-            "text": "", 
+            "text": "Cart review\n\n\nLiquid tags\n\n\n\n\ncheckout_flow\n: true\n\n\ncheckout_step\n: 1\n\n\n\n\nRequest\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/cart\n\n\n\n\n\n\nShipping details\n\n\nLiquid tags\n\n\n\n\ncheckout_flow\n: true\n\n\ncheckout_step\n: 2\n\n\n\n\nRequest\n\n\n\n\nMethod: \nGET\n \nPOST\n\n\nURL: \n/checkout\n \n\n\nParameters:\n\n\ncheckout[shipping_address][first_name]\n\n\ncheckout[shipping_address][last_name]\n\n\n\n\n\n\nPayment\n\n\nLiquid tags\n\n\n\n\ncheckout_flow\n: true\n\n\ncheckout_step\n: 3\n\n\n\n\nRequest\n\n\n\n\nMethod: \nPOST\n\n\nURL: \n/cart/payment\n\n\n\n\n NOTE: \n Do \nnot\n in any way for any reason try to modify the standard behaviour of the payment buttons. The payment buttons are meant to be PCI DSS compliant, and you cannot modify them.\n\nIf you find there is some problem with these buttons, or you have any request please don't hesitate to contact us.\n\n\nOrder completed\n\n\nLiquid tags\n\n\n\n\ncheckout_flow\n: true\n\n\ncheckout_step\n: 4", 
             "title": "Checkout Flow"
         }, 
         {
-            "location": "/javascript/", 
+            "location": "/checkout/#cart-review", 
             "text": "", 
+            "title": "Cart review"
+        }, 
+        {
+            "location": "/checkout/#liquid-tags", 
+            "text": "checkout_flow : true  checkout_step : 1", 
+            "title": "Liquid tags"
+        }, 
+        {
+            "location": "/checkout/#request", 
+            "text": "Method:  GET  URL:  /cart", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/checkout/#shipping-details", 
+            "text": "", 
+            "title": "Shipping details"
+        }, 
+        {
+            "location": "/checkout/#liquid-tags_1", 
+            "text": "checkout_flow : true  checkout_step : 2", 
+            "title": "Liquid tags"
+        }, 
+        {
+            "location": "/checkout/#request_1", 
+            "text": "Method:  GET   POST  URL:  /checkout    Parameters:  checkout[shipping_address][first_name]  checkout[shipping_address][last_name]", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/checkout/#payment", 
+            "text": "", 
+            "title": "Payment"
+        }, 
+        {
+            "location": "/checkout/#liquid-tags_2", 
+            "text": "checkout_flow : true  checkout_step : 3", 
+            "title": "Liquid tags"
+        }, 
+        {
+            "location": "/checkout/#request_2", 
+            "text": "Method:  POST  URL:  /cart/payment    NOTE:   Do  not  in any way for any reason try to modify the standard behaviour of the payment buttons. The payment buttons are meant to be PCI DSS compliant, and you cannot modify them. \nIf you find there is some problem with these buttons, or you have any request please don't hesitate to contact us.", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/checkout/#order-completed", 
+            "text": "", 
+            "title": "Order completed"
+        }, 
+        {
+            "location": "/checkout/#liquid-tags_3", 
+            "text": "checkout_flow : true  checkout_step : 4", 
+            "title": "Liquid tags"
+        }, 
+        {
+            "location": "/javascript/", 
+            "text": "Usage\n\n\nThe javascript library is included by default in your page and is loaded by the \n{{ content_for_header }}\n tag.\n\nIf you don't want to use the javascript library just add 'no-scripts' as an argument like this: \n{{ content_for_header: 'no-scripts' }}\n\n\nHowever we highly recommend to use the library.\n\n\nCarts\n\n\nWhenever a product is added, removed or its quantity is updated from the cart, the javascript library automatically reloads all the carts in the page.\n\n\nThere are three built in carts:\n\n\n\n\n\n\n\n\nName\n\n\nEndpoint URL\n\n\nHTML Data Attribute\n\n\nUsage\n\n\n\n\n\n\n\n\n\n\nCart full\n\n\n/cart/full.ajax\n\n\ndata-cart-full\n\n\nShould be used during the \ncart review\n phase of the checkout\n\n\n\n\n\n\nCart mini\n\n\n/cart/mini.ajax\n\n\ndata-cart-mini\n\n\nYou can use this cart as a preview in the navigation bar\n\n\n\n\n\n\nCart additional\n\n\n/cart/additional.ajax\n\n\ndata-cart-additional\n\n\nAn additional cart you can use in your pages\n\n\n\n\n\n\n\n\nWhat happen behind the scenes on an update:  \n\n\n\n\nThe library checks how many carts there are on the page  \n\n\nThe library downloads the new carts from the respective endpoints  \n\n\nThe library replaces any HTML element containing a \ndata-cart-*\n attribute with the new cart.\n\n\n\n\nThis way you don't have to worry about manually synching all the carts on your page.\n\n\nAdd to cart\n\n\nThe javascript library makes it easy to add a produt to the cart.\n\n\nTo add a product we need to send a \nPOST\n request to \n/cart/add\n as documented \nhere\n.\n\nThis would be easily done with a simple HTML \nform\n, but to create a seamless experience for the user, and to make it simpler to implement we can use the javascript library.\n\n\nConsider the code below:\n\n\nform action=\n/cart/add\n method=\npost\n\n  \ninput type=\nhidden\n name=\nproduct\n value=\n{{ product.id }}\n /\n\n  \ninput type=\nsubmit\n value=\nAdd to Cart\n /\n\n\n/form\n\n\n\n\n\nThis is the simplest add to cart button you can imagine.\n\nWhat happen behind the scenes:\n\n\n\n\nThe library adds the \nCSRF token\n to the form\n\n\nThe library prevents the form from submitting\n\n\nThe library sends an \nAJAX\n request to \n/cart/add\n\n\nThe library decides wheter to show a popup, or do nothing\n\n\n\n\nUnfortunately this is not always the case.\nSometime we need to handle product with variants, or add more than one item:\n\n\nform action=\n/cart/add\n method=\npost\n\n  {% if product.has_variants %}\n    \ninput type=\nhidden\n name=\nvariant\n value=\n{{ product.selected_or_first_available_variant.id }}\n /\n\n  {% endif %}\n  \ninput type=\nhidden\n name=\nproduct\n value=\n{{ product.id }}\n /\n\n  \ninput type=\ntext\n name=\nquantity\n /\n\n  \ninput type=\nsubmit\n value=\nAdd to Cart\n /\n\n\n/form\n\n\n\n\n\nAdd to cart popup\n\n\nAfter we successfully added a product to the cart we can decide to show the user a popup.\n\n\nAs usual the javascript library comes handy.\n\n\nThe only thing we need is to add some code in the \n/cart/popup.ajax\n template.\n\n\nExample\n\n\ndiv\n\n  You have just add {{ line_item.product_name }} to the cart.\n\n  \na href=\n/cart\nCheckout\n/a\n\n  \nspan data-close-popup\nContinue shopping\n/span\n\n\n/div\n\n\n\n\n\nOther common behaviours after an add to cart:\n\n\n\n\nShow a popup\n\n\nDo nothing\n\n\nRedirect to the cart\n\n\n\n\nShow a popup\n\n\nTo shop a popup insert your HTML in the \n/cart/popup.ajax\n, your element will be shown in the middle of the page.\n\n\nAny element with a \ndata-close-popup\n will close the popup on click.\n\n\nDo nothing\n\n\nQuite simple, just leave the \n/cart/popup.ajax\n template completely empty.\n\n\nRedirect to cart\n\n\nThis is a bit tricky, so you can just copy-paste the code below in the \n/cart/popup.ajax\n template:\n\n\nstyle\n\n    .popup_add_to_cart_invisible { \n        background: rgba(0, 0, 0, 0);\n    }\n\n/style\n\n\nscript\n\n    window.location.href = '/cart';\n\n/script", 
             "title": "Javascript Library"
+        }, 
+        {
+            "location": "/javascript/#usage", 
+            "text": "The javascript library is included by default in your page and is loaded by the  {{ content_for_header }}  tag. \nIf you don't want to use the javascript library just add 'no-scripts' as an argument like this:  {{ content_for_header: 'no-scripts' }}  However we highly recommend to use the library.", 
+            "title": "Usage"
+        }, 
+        {
+            "location": "/javascript/#carts", 
+            "text": "Whenever a product is added, removed or its quantity is updated from the cart, the javascript library automatically reloads all the carts in the page.  There are three built in carts:     Name  Endpoint URL  HTML Data Attribute  Usage      Cart full  /cart/full.ajax  data-cart-full  Should be used during the  cart review  phase of the checkout    Cart mini  /cart/mini.ajax  data-cart-mini  You can use this cart as a preview in the navigation bar    Cart additional  /cart/additional.ajax  data-cart-additional  An additional cart you can use in your pages     What happen behind the scenes on an update:     The library checks how many carts there are on the page    The library downloads the new carts from the respective endpoints    The library replaces any HTML element containing a  data-cart-*  attribute with the new cart.   This way you don't have to worry about manually synching all the carts on your page.", 
+            "title": "Carts"
+        }, 
+        {
+            "location": "/javascript/#add-to-cart", 
+            "text": "The javascript library makes it easy to add a produt to the cart.  To add a product we need to send a  POST  request to  /cart/add  as documented  here . \nThis would be easily done with a simple HTML  form , but to create a seamless experience for the user, and to make it simpler to implement we can use the javascript library.  Consider the code below:  form action= /cart/add  method= post \n   input type= hidden  name= product  value= {{ product.id }}  / \n   input type= submit  value= Add to Cart  /  /form   This is the simplest add to cart button you can imagine. \nWhat happen behind the scenes:   The library adds the  CSRF token  to the form  The library prevents the form from submitting  The library sends an  AJAX  request to  /cart/add  The library decides wheter to show a popup, or do nothing   Unfortunately this is not always the case.\nSometime we need to handle product with variants, or add more than one item:  form action= /cart/add  method= post \n  {% if product.has_variants %}\n     input type= hidden  name= variant  value= {{ product.selected_or_first_available_variant.id }}  / \n  {% endif %}\n   input type= hidden  name= product  value= {{ product.id }}  / \n   input type= text  name= quantity  / \n   input type= submit  value= Add to Cart  /  /form", 
+            "title": "Add to cart"
+        }, 
+        {
+            "location": "/javascript/#add-to-cart-popup", 
+            "text": "After we successfully added a product to the cart we can decide to show the user a popup.  As usual the javascript library comes handy.  The only thing we need is to add some code in the  /cart/popup.ajax  template.  Example  div \n  You have just add {{ line_item.product_name }} to the cart.\n\n   a href= /cart Checkout /a \n   span data-close-popup Continue shopping /span  /div   Other common behaviours after an add to cart:   Show a popup  Do nothing  Redirect to the cart", 
+            "title": "Add to cart popup"
+        }, 
+        {
+            "location": "/javascript/#show-a-popup", 
+            "text": "To shop a popup insert your HTML in the  /cart/popup.ajax , your element will be shown in the middle of the page.  Any element with a  data-close-popup  will close the popup on click.", 
+            "title": "Show a popup"
+        }, 
+        {
+            "location": "/javascript/#do-nothing", 
+            "text": "Quite simple, just leave the  /cart/popup.ajax  template completely empty.", 
+            "title": "Do nothing"
+        }, 
+        {
+            "location": "/javascript/#redirect-to-cart", 
+            "text": "This is a bit tricky, so you can just copy-paste the code below in the  /cart/popup.ajax  template:  style \n    .popup_add_to_cart_invisible { \n        background: rgba(0, 0, 0, 0);\n    } /style  script \n    window.location.href = '/cart'; /script", 
+            "title": "Redirect to cart"
         }, 
         {
             "location": "/endpoints/", 
