@@ -36,10 +36,7 @@ pages:
         - Product: 'liquid/product.md'
         - Refund: 'liquid/refund.md'
         - Variant: 'liquid/variant.md'
-    - 'Machine Learning': 'liquid/machine-learning.md'
+  - 'Machine Learning': 'machine-learning.md'
   - 'Checkout Flow': 'checkout.md'
-  - 'JSON Endpoints':
-    - Cart: 'endpoints/cart.md'
-    - Category: 'endpoints/category.md'
-    - Product: 'endpoints/product.md'
+  - 'JSON Endpoints': 'endpoints.md'
 theme: readthedocs
