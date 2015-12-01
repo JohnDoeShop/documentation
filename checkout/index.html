@@ -298,6 +298,32 @@
         
             <ul>
             
+                <li class="toctree-l3"><a href="#cart-review">Cart review</a></li>
+                
+                    <li><a class="toctree-l4" href="#liquid-tags">Liquid tags</a></li>
+                
+                    <li><a class="toctree-l4" href="#request">Request</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#shipping-details">Shipping details</a></li>
+                
+                    <li><a class="toctree-l4" href="#liquid-tags_1">Liquid tags</a></li>
+                
+                    <li><a class="toctree-l4" href="#request_1">Request</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#payment">Payment</a></li>
+                
+                    <li><a class="toctree-l4" href="#liquid-tags_2">Liquid tags</a></li>
+                
+                    <li><a class="toctree-l4" href="#request_2">Request</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#order-completed">Order completed</a></li>
+                
+                    <li><a class="toctree-l4" href="#liquid-tags_3">Liquid tags</a></li>
+                
+            
             </ul>
         
     </li>
@@ -349,7 +375,52 @@
           <div role="main">
             <div class="section">
               
-                
+                <h1 id="cart-review">Cart review</h1>
+<h2 id="liquid-tags">Liquid tags</h2>
+<ul>
+<li><code>checkout_flow</code>: true</li>
+<li><code>checkout_step</code>: 1</li>
+</ul>
+<h2 id="request">Request</h2>
+<ul>
+<li>Method: <code>GET</code></li>
+<li>URL: <code>/cart</code></li>
+</ul>
+<hr />
+<h1 id="shipping-details">Shipping details</h1>
+<h2 id="liquid-tags_1">Liquid tags</h2>
+<ul>
+<li><code>checkout_flow</code>: true</li>
+<li><code>checkout_step</code>: 2</li>
+</ul>
+<h2 id="request_1">Request</h2>
+<ul>
+<li>Method: <code>GET</code> <code>POST</code></li>
+<li>URL: <code>/checkout</code> </li>
+<li>Parameters:</li>
+<li>checkout[shipping_address][first_name]</li>
+<li>checkout[shipping_address][last_name]</li>
+</ul>
+<hr />
+<h1 id="payment">Payment</h1>
+<h2 id="liquid-tags_2">Liquid tags</h2>
+<ul>
+<li><code>checkout_flow</code>: true</li>
+<li><code>checkout_step</code>: 3</li>
+</ul>
+<h2 id="request_2">Request</h2>
+<ul>
+<li>Method: <code>POST</code></li>
+<li>URL: <code>/cart/payment</code></li>
+</ul>
+<p><strong> NOTE: </strong> Do <em>not</em> in any way for any reason try to modify the standard behaviour of the payment buttons. The payment buttons are meant to be PCI DSS compliant, and you cannot modify them.<br />
+If you find there is some problem with these buttons, or you have any request please don't hesitate to contact us.</p>
+<h1 id="order-completed">Order completed</h1>
+<h2 id="liquid-tags_3">Liquid tags</h2>
+<ul>
+<li><code>checkout_flow</code>: true</li>
+<li><code>checkout_step</code>: 4</li>
+</ul>
               
             </div>
           </div>

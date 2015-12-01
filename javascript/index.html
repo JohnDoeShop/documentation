@@ -305,6 +305,24 @@
         
             <ul>
             
+                <li class="toctree-l3"><a href="#usage">Usage</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#carts">Carts</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#add-to-cart">Add to cart</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#add-to-cart-popup">Add to cart popup</a></li>
+                
+                    <li><a class="toctree-l4" href="#show-a-popup">Show a popup</a></li>
+                
+                    <li><a class="toctree-l4" href="#do-nothing">Do nothing</a></li>
+                
+                    <li><a class="toctree-l4" href="#redirect-to-cart">Redirect to cart</a></li>
+                
+            
             </ul>
         
     </li>
@@ -349,7 +367,116 @@
           <div role="main">
             <div class="section">
               
-                
+                <h1 id="usage">Usage</h1>
+<p>The javascript library is included by default in your page and is loaded by the <code>{{ content_for_header }}</code> tag.<br />
+If you don't want to use the javascript library just add 'no-scripts' as an argument like this: <code>{{ content_for_header: 'no-scripts' }}</code></p>
+<p>However we highly recommend to use the library.</p>
+<h1 id="carts">Carts</h1>
+<p>Whenever a product is added, removed or its quantity is updated from the cart, the javascript library automatically reloads all the carts in the page.</p>
+<p>There are three built in carts:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Endpoint URL</th>
+<th>HTML Data Attribute</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cart full</td>
+<td>/cart/full.ajax</td>
+<td>data-cart-full</td>
+<td>Should be used during the <a href="../checkout/">cart review</a> phase of the checkout</td>
+</tr>
+<tr>
+<td>Cart mini</td>
+<td>/cart/mini.ajax</td>
+<td>data-cart-mini</td>
+<td>You can use this cart as a preview in the navigation bar</td>
+</tr>
+<tr>
+<td>Cart additional</td>
+<td>/cart/additional.ajax</td>
+<td>data-cart-additional</td>
+<td>An additional cart you can use in your pages</td>
+</tr>
+</tbody>
+</table>
+<p>What happen behind the scenes on an update:  </p>
+<ul>
+<li>The library checks how many carts there are on the page  </li>
+<li>The library downloads the new carts from the respective endpoints  </li>
+<li>The library replaces any HTML element containing a <code>data-cart-*</code> attribute with the new cart.</li>
+</ul>
+<p>This way you don't have to worry about manually synching all the carts on your page.</p>
+<h1 id="add-to-cart">Add to cart</h1>
+<p>The javascript library makes it easy to add a produt to the cart.</p>
+<p>To add a product we need to send a <em>POST</em> request to <code>/cart/add</code> as documented <a href="../endpoints/">here</a>.<br />
+This would be easily done with a simple HTML <code>form</code>, but to create a seamless experience for the user, and to make it simpler to implement we can use the javascript library.</p>
+<p>Consider the code below:</p>
+<pre><code class="liquid">&lt;form action=&quot;/cart/add&quot; method=&quot;post&quot;&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;product&quot; value=&quot;{{ product.id }}&quot; /&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Add to Cart&quot; /&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>This is the simplest add to cart button you can imagine.<br />
+What happen behind the scenes:</p>
+<ul>
+<li>The library adds the <em>CSRF token</em> to the form</li>
+<li>The library prevents the form from submitting</li>
+<li>The library sends an <em>AJAX</em> request to <code>/cart/add</code></li>
+<li>The library decides wheter to show a popup, or do nothing</li>
+</ul>
+<p>Unfortunately this is not always the case.
+Sometime we need to handle product with variants, or add more than one item:</p>
+<pre><code class="liquid">&lt;form action=&quot;/cart/add&quot; method=&quot;post&quot;&gt;
+  {% if product.has_variants %}
+    &lt;input type=&quot;hidden&quot; name=&quot;variant&quot; value=&quot;{{ product.selected_or_first_available_variant.id }}&quot; /&gt;
+  {% endif %}
+  &lt;input type=&quot;hidden&quot; name=&quot;product&quot; value=&quot;{{ product.id }}&quot; /&gt;
+  &lt;input type=&quot;text&quot; name=&quot;quantity&quot; /&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Add to Cart&quot; /&gt;
+&lt;/form&gt;
+</code></pre>
+
+<h1 id="add-to-cart-popup">Add to cart popup</h1>
+<p>After we successfully added a product to the cart we can decide to show the user a popup.</p>
+<p>As usual the javascript library comes handy.</p>
+<p>The only thing we need is to add some code in the <code>/cart/popup.ajax</code> template.</p>
+<p><em>Example</em></p>
+<pre><code class="liquid">&lt;div&gt;
+  You have just add {{ line_item.product_name }} to the cart.
+
+  &lt;a href=&quot;/cart&quot;&gt;Checkout&lt;/a&gt;
+  &lt;span data-close-popup&gt;Continue shopping&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Other common behaviours after an add to cart:</p>
+<ul>
+<li>Show a popup</li>
+<li>Do nothing</li>
+<li>Redirect to the cart</li>
+</ul>
+<h2 id="show-a-popup">Show a popup</h2>
+<p>To shop a popup insert your HTML in the <code>/cart/popup.ajax</code>, your element will be shown in the middle of the page.</p>
+<p>Any element with a <code>data-close-popup</code> will close the popup on click.</p>
+<h2 id="do-nothing">Do nothing</h2>
+<p>Quite simple, just leave the <code>/cart/popup.ajax</code> template completely empty.</p>
+<h2 id="redirect-to-cart">Redirect to cart</h2>
+<p>This is a bit tricky, so you can just copy-paste the code below in the <code>/cart/popup.ajax</code> template:</p>
+<pre><code class="liquid">&lt;style&gt;
+    .popup_add_to_cart_invisible { 
+        background: rgba(0, 0, 0, 0);
+    }
+&lt;/style&gt;
+&lt;script&gt;
+    window.location.href = '/cart';
+&lt;/script&gt;
+</code></pre>
               
             </div>
           </div>
