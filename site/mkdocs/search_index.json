@@ -1,0 +1,1164 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to John Doe Shop\n\n\nThis is the official John Doe Shop documentation for web agencies and stores using our platform.\n\n\nIf you want to contribute send a pull request to \nthis repository\n.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#welcome-to-john-doe-shop", 
+            "text": "This is the official John Doe Shop documentation for web agencies and stores using our platform.  If you want to contribute send a pull request to  this repository .", 
+            "title": "Welcome to John Doe Shop"
+        }, 
+        {
+            "location": "/liquid/introduction/", 
+            "text": "Basics\n\n\nThis is an introduction to Liquid. You can find the original \nhere\n\n\nIntroduction\n\n\nWe choose to use Liquid as our default template engine to be as compatible as possible with Shopify's syntax.\nMany of you already used Shopify to design a frontend so we tried to be consistent with their variables, objects and filters so you don't need to learn a completely new syntax.\n\n\nLiquid uses a combination of tags, objects, and filters to load dynamic content. They are used inside Liquid template files, which are a group of files that make up a theme. \n\n\nTags\n\n\nTags make up the programming logic that tells templates what to do. \n\n\n{% if user.name == 'John Doe' %}\n  Hey John!\n{% endif %}\n\n\n\n\nObjects\n\n\nObjects contain attributes that are used to display dynamic content on the page. \n\n\n{{ product.title }} \n!-- Output: Awesome T-Shirt--\n\n\n\n\n\nFilters\n\n\nFilters are used to modify the output of strings, numbers, variables, and objects. \n\n\n{{ 'sales' | append: '.jpg' }} \n!-- Output: sales.jpg --\n\n\n\n\n\nOperators\n\n\nLiquid has access to all of the logical and comparison operators. These can be used in tags such as if and unless. \n\n\nBasic Operators\n\n\n\n\n\n\n\n\nOperator\n\n\nMeaning\n\n\n\n\n\n\n\n\n\n\n==\n\n\nequals\n\n\n\n\n\n\n!=\n\n\ndoes not equal\n\n\n\n\n\n\n\n\ngreater than\n\n\n\n\n\n\n\n\nless than\n\n\n\n\n\n\n=\n\n\ngreater than or equal\n\n\n\n\n\n\n\n\nless than or equal\n\n\n\n\n\n\nand\n\n\nA and B\n\n\n\n\n\n\nor\n\n\nA or B\n\n\n\n\n\n\n\n\nExamples\n\n\n{% if product.title == \nAwesome Shoes\n %}\n    These shoes are awesome!\n{% endif %}\n\n\n\n\nOperators can be chained together. \n\n\n{% if product.type == \nShirt\n or product.type == \nShoes\n %}\n    This is a shirt or a shoe. \n{% endif %}\n\n\n\n\nContains\n\n\ncontains\n checks for the presence of a substring inside a string. \n\n\n{% if product.title contains 'Pack' %}\n  This product's title contains the word Pack.\n{% endif %}\n\n\n\n\ncontains\n can also check for the presence of a string in an array of strings.\n\n\n{% if product.tags contains 'Hello' %}\n  This product has been tagged with 'Hello'.\n{% endif %}\n\n\n\n\nYou cannot check for the presence of an object in an array of objects using contains. This will not work:\n\n\n{% if product.category contains 'T-Shirts' %}\n  This product belongs to the T-shirts category.\n{% endif %}\n\n\n\n\nTypes\n\n\nLiquid objects can return one of five types: String, Number, Boolean, Nil or Array. Liquid variables can be initialized by using the assign or capture tags. \n\n\nStrings\n\n\nStrings are declared by wrapping the variable's value in single or double quotes. \n\n\n{% assign my_string = \nGood Morning\n %}\n\n\n\n\nNumberical\n\n\nNumbers include floats and integers. \n\n\n{% assign my_num = 25 %}\n\n\n\n\nBooleans\n\n\nBooleans are either true or false. No quotations are necessary when declaring a boolean.\n\n\n{% assign foo = true %}\n{% assign bar = false %}\n\n\n\n\nNil\n\n\nnil\n is an empty value that is returned when Liquid code has no results. It is not a string with the characters \"nil\".\n\n\nnil\n is treated as false in the conditions of \n{% if %}\n blocks and other Liquid tags that check for the truthfulness of a statement. The example below shows a situation where a fulfillment does not yet have a tracking number entered. The if statement would not render the included text within it. \n\n\n{% if fulfillment.tracking_numbers %}\nWe have a tracking number!\n{% endif %}\n\n\n\n\nAny tags or outputs that return nil will not show anything on the screen. \n\n\nArrays\n\n\nArrays hold a list of variables of all types. \n\n\nAccessing all items in an array\n\n\nTo access items in an array, you can loop through each item in the array using a for tag or a tablerow tag. \n\n\n!-- if product.tags = \nsale\n, \nsummer\n, \nspring\n, \nwholesale\n --\n\n{% for tag in product.tags %}\n    {{ tag }}\n{% endfor %}\n\n\n\n\nAccessing a specific item in an array\n\n\nYou can use square brackets ( [ ] ) notation to access a specific item in an array. Array indexing starts at zero. \n\n\n!-- if product.tags = \nsale\n, \nsummer\n, \nspring\n, \nwholesale\n --\n\n{{ product.tags[0] }} \n{{ product.tags[1] }} \n{{ product.tags[2] }} \n{{ product.tags[3] }}\n\n\n\n\nInitializing an array\n\n\nIt is not possible to initialize an array in Liquid. For example, in Javascript you could do something like this: \n\n\nscript\n\nvar songs = [\nLost in the World\n, \nMercy\n, \nGold Digger\n, \nRunaway\n];\n\n/script\n\n\n\n\n\nIn Liquid, you must instead use the split filter to break a single string into an array of substrings. See split for examples. \n\n\nTruthy and Falsy\n\n\nWhat is liquid?\n\n\nIn programming, we describe \u201ctruthy\u201d and \u201cfalsy\u201d as anything that returns true or false, respectively, when used inside an if statement. \n\n\nWhat is true?\n\n\nAll values in Liquid are truthy, with the exception of nil and false.\n\n\nIn the example below, the text \u201cJohn Doe\u201d is not a boolean, but it is truthy in a conditional: \n\n\n{% assign john_doe = 'John Doe' %}\n{% if john_doe %}\nThis will always be true.\n{% endif %}\n\n\n\n\nStrings, even when empty, are truthy. The example below will result in empty HTML tags if \nsettings.body_background\n is defined but empty: \n\n\n{% if settings.body_background %}\n\nh1\n{{ settings.body_background }}\n/h1\n\n{% endif %}\n\n!-- Output: \nh1\n/h1\n --\n\n\n\n\n\nWhat is false?\n\n\nThe only values that are falsy in Liquid are nil and false.\n\n\nnil\n is returned when a Liquid object doesn't have anything to return. For example, if a category doesn't have an image, category.image will be set to nil. Since that is falsy, you can do this: \n\n\n{% if category.image %}\n\n!-- Output: //az763220.vo.msecnd.net/... (category image if present) --\n\n{% endif %}\n\n\n\n\nThe value false is returned through many Liquid object properties such as \nproduct.available\n, and others.", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/liquid/introduction/#basics", 
+            "text": "This is an introduction to Liquid. You can find the original  here", 
+            "title": "Basics"
+        }, 
+        {
+            "location": "/liquid/introduction/#introduction", 
+            "text": "We choose to use Liquid as our default template engine to be as compatible as possible with Shopify's syntax.\nMany of you already used Shopify to design a frontend so we tried to be consistent with their variables, objects and filters so you don't need to learn a completely new syntax.  Liquid uses a combination of tags, objects, and filters to load dynamic content. They are used inside Liquid template files, which are a group of files that make up a theme.   Tags  Tags make up the programming logic that tells templates what to do.   {% if user.name == 'John Doe' %}\n  Hey John!\n{% endif %}  Objects  Objects contain attributes that are used to display dynamic content on the page.   {{ product.title }}  !-- Output: Awesome T-Shirt--   Filters  Filters are used to modify the output of strings, numbers, variables, and objects.   {{ 'sales' | append: '.jpg' }}  !-- Output: sales.jpg --", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/liquid/introduction/#operators", 
+            "text": "Liquid has access to all of the logical and comparison operators. These can be used in tags such as if and unless.   Basic Operators     Operator  Meaning      ==  equals    !=  does not equal     greater than     less than    =  greater than or equal     less than or equal    and  A and B    or  A or B     Examples  {% if product.title ==  Awesome Shoes  %}\n    These shoes are awesome!\n{% endif %}  Operators can be chained together.   {% if product.type ==  Shirt  or product.type ==  Shoes  %}\n    This is a shirt or a shoe. \n{% endif %}  Contains  contains  checks for the presence of a substring inside a string.   {% if product.title contains 'Pack' %}\n  This product's title contains the word Pack.\n{% endif %}  contains  can also check for the presence of a string in an array of strings.  {% if product.tags contains 'Hello' %}\n  This product has been tagged with 'Hello'.\n{% endif %}  You cannot check for the presence of an object in an array of objects using contains. This will not work:  {% if product.category contains 'T-Shirts' %}\n  This product belongs to the T-shirts category.\n{% endif %}", 
+            "title": "Operators"
+        }, 
+        {
+            "location": "/liquid/introduction/#types", 
+            "text": "Liquid objects can return one of five types: String, Number, Boolean, Nil or Array. Liquid variables can be initialized by using the assign or capture tags.   Strings  Strings are declared by wrapping the variable's value in single or double quotes.   {% assign my_string =  Good Morning  %}  Numberical  Numbers include floats and integers.   {% assign my_num = 25 %}  Booleans  Booleans are either true or false. No quotations are necessary when declaring a boolean.  {% assign foo = true %}\n{% assign bar = false %}  Nil  nil  is an empty value that is returned when Liquid code has no results. It is not a string with the characters \"nil\".  nil  is treated as false in the conditions of  {% if %}  blocks and other Liquid tags that check for the truthfulness of a statement. The example below shows a situation where a fulfillment does not yet have a tracking number entered. The if statement would not render the included text within it.   {% if fulfillment.tracking_numbers %}\nWe have a tracking number!\n{% endif %}  Any tags or outputs that return nil will not show anything on the screen.   Arrays  Arrays hold a list of variables of all types.   Accessing all items in an array  To access items in an array, you can loop through each item in the array using a for tag or a tablerow tag.   !-- if product.tags =  sale ,  summer ,  spring ,  wholesale  -- \n{% for tag in product.tags %}\n    {{ tag }}\n{% endfor %}  Accessing a specific item in an array  You can use square brackets ( [ ] ) notation to access a specific item in an array. Array indexing starts at zero.   !-- if product.tags =  sale ,  summer ,  spring ,  wholesale  -- \n{{ product.tags[0] }} \n{{ product.tags[1] }} \n{{ product.tags[2] }} \n{{ product.tags[3] }}  Initializing an array  It is not possible to initialize an array in Liquid. For example, in Javascript you could do something like this:   script \nvar songs = [ Lost in the World ,  Mercy ,  Gold Digger ,  Runaway ]; /script   In Liquid, you must instead use the split filter to break a single string into an array of substrings. See split for examples.", 
+            "title": "Types"
+        }, 
+        {
+            "location": "/liquid/introduction/#truthy-and-falsy", 
+            "text": "", 
+            "title": "Truthy and Falsy"
+        }, 
+        {
+            "location": "/liquid/introduction/#what-is-liquid", 
+            "text": "In programming, we describe \u201ctruthy\u201d and \u201cfalsy\u201d as anything that returns true or false, respectively, when used inside an if statement.", 
+            "title": "What is liquid?"
+        }, 
+        {
+            "location": "/liquid/introduction/#what-is-true", 
+            "text": "All values in Liquid are truthy, with the exception of nil and false.  In the example below, the text \u201cJohn Doe\u201d is not a boolean, but it is truthy in a conditional:   {% assign john_doe = 'John Doe' %}\n{% if john_doe %}\nThis will always be true.\n{% endif %}  Strings, even when empty, are truthy. The example below will result in empty HTML tags if  settings.body_background  is defined but empty:   {% if settings.body_background %} h1 {{ settings.body_background }} /h1 \n{% endif %} !-- Output:  h1 /h1  --", 
+            "title": "What is true?"
+        }, 
+        {
+            "location": "/liquid/introduction/#what-is-false", 
+            "text": "The only values that are falsy in Liquid are nil and false.  nil  is returned when a Liquid object doesn't have anything to return. For example, if a category doesn't have an image, category.image will be set to nil. Since that is falsy, you can do this:   {% if category.image %} !-- Output: //az763220.vo.msecnd.net/... (category image if present) -- \n{% endif %}  The value false is returned through many Liquid object properties such as  product.available , and others.", 
+            "title": "What is false?"
+        }, 
+        {
+            "location": "/liquid/articles/", 
+            "text": "", 
+            "title": "Articles"
+        }, 
+        {
+            "location": "/liquid/categories/", 
+            "text": "", 
+            "title": "Categories"
+        }, 
+        {
+            "location": "/liquid/countries/", 
+            "text": "", 
+            "title": "Countries"
+        }, 
+        {
+            "location": "/liquid/currencies/", 
+            "text": "currency.symbol\n\n\nReturns the \ncurrency symbol\n.\n\n\nExample\n\n\n{{ currency.symbol }}\n\n!-- Outputs: $ --\n\n\n\n\n\ncurrency.id\n\n\nReturns the currency internal Id.\n\n\ncurrency.code\n\n\nExample\n\n\n{{ currency.code }}\n\n!-- Outputs: USD --\n\n\n\n\n\nReturns a three-letters \nISO 4217\n currency code.\n\n\ncurrency.name\n\n\nReturns the full currency name.\n\n\nExample\n\n\n{{ currency.name }}\n\n!-- Outputs: Euro --", 
+            "title": "Currencies"
+        }, 
+        {
+            "location": "/liquid/currencies/#currencysymbol", 
+            "text": "Returns the  currency symbol .  Example  {{ currency.symbol }} !-- Outputs: $ --", 
+            "title": "currency.symbol"
+        }, 
+        {
+            "location": "/liquid/currencies/#currencyid", 
+            "text": "Returns the currency internal Id.", 
+            "title": "currency.id"
+        }, 
+        {
+            "location": "/liquid/currencies/#currencycode", 
+            "text": "Example  {{ currency.code }} !-- Outputs: USD --   Returns a three-letters  ISO 4217  currency code.", 
+            "title": "currency.code"
+        }, 
+        {
+            "location": "/liquid/currencies/#currencyname", 
+            "text": "Returns the full currency name.  Example  {{ currency.name }} !-- Outputs: Euro --", 
+            "title": "currency.name"
+        }, 
+        {
+            "location": "/liquid/link-lists/", 
+            "text": "", 
+            "title": "Link Lists"
+        }, 
+        {
+            "location": "/liquid/pages/", 
+            "text": "", 
+            "title": "Pages"
+        }, 
+        {
+            "location": "/liquid/address/", 
+            "text": "address.first_name\n\n\naddress.last_name\n\n\naddress.name\n\n\naddress.phone\n\n\naddress.company\n\n\naddress.street1\n\n\naddress.street2\n\n\naddress.street\n\n\naddress.city_name\n\n\naddress.postal_code\n\n\naddress.state_or_province\n\n\naddress.country\n\n\nReturns the \ncountry", 
+            "title": "Address"
+        }, 
+        {
+            "location": "/liquid/address/#addressfirst_name", 
+            "text": "", 
+            "title": "address.first_name"
+        }, 
+        {
+            "location": "/liquid/address/#addresslast_name", 
+            "text": "", 
+            "title": "address.last_name"
+        }, 
+        {
+            "location": "/liquid/address/#addressname", 
+            "text": "", 
+            "title": "address.name"
+        }, 
+        {
+            "location": "/liquid/address/#addressphone", 
+            "text": "", 
+            "title": "address.phone"
+        }, 
+        {
+            "location": "/liquid/address/#addresscompany", 
+            "text": "", 
+            "title": "address.company"
+        }, 
+        {
+            "location": "/liquid/address/#addressstreet1", 
+            "text": "", 
+            "title": "address.street1"
+        }, 
+        {
+            "location": "/liquid/address/#addressstreet2", 
+            "text": "", 
+            "title": "address.street2"
+        }, 
+        {
+            "location": "/liquid/address/#addressstreet", 
+            "text": "", 
+            "title": "address.street"
+        }, 
+        {
+            "location": "/liquid/address/#addresscity_name", 
+            "text": "", 
+            "title": "address.city_name"
+        }, 
+        {
+            "location": "/liquid/address/#addresspostal_code", 
+            "text": "", 
+            "title": "address.postal_code"
+        }, 
+        {
+            "location": "/liquid/address/#addressstate_or_province", 
+            "text": "", 
+            "title": "address.state_or_province"
+        }, 
+        {
+            "location": "/liquid/address/#addresscountry", 
+            "text": "Returns the  country", 
+            "title": "address.country"
+        }, 
+        {
+            "location": "/liquid/cart/", 
+            "text": "cart.customer_notes\n\n\nReturns the notes the customer left for the merchant.\n\n\ncart.shipping_address\n\n\nReturns the \nshipping address\n of the current cart.\n\n\ncart.billing_address\n\n\nReturns the \nbilling address\n of the current cart.\n\n\ncart.shipping_methods\n\n\nReturns a collection of \nshipping methods\n available for the current cart.\n\n\ncart.shipping_method\n\n\nReturns the selected \nshipping method\n of the current cart.\n\n\ncart.discount_code\n\n\nReturns the \ndiscount code\n associated to the current cart.\n\n\nReturns nil if no discount code is associated.\n\n\ncart.discount_code_value\n\n\nReturns the monetary value of the discount code, always \n= 0.\n\n\ncart.different_billing_address\n\n\nWheter the \nbilling address\n is different from the shipping address for the current cart.\n\n\ncart.item_count\n\n\nThe number of the \nline items\n present in the current cart.\n\n\ncart.total_quantity\n\n\nThe total number of products in the current cart.\n\n\ncart.line_items\n\n\nReturns a collection of \nline items\n for the current cart.\n\n\ncart.items_price_without_discount\n\n\nReturns the value of the products without applying any \ndiscount code\n\n\ncart.items_price\n\n\nReturns the value of the products minus the value of the discount code when applicable.\n\n\ncart.shipping_price\n\n\nReturns the price of the selected shipping method.\n\n\ncart.total_price\n\n\nReturns the grand total of the current cart.\n\n\ncart.total_weight\n\n\nReturns the total weight of the cart in Kilograms.", 
+            "title": "Cart"
+        }, 
+        {
+            "location": "/liquid/cart/#cartcustomer_notes", 
+            "text": "Returns the notes the customer left for the merchant.", 
+            "title": "cart.customer_notes"
+        }, 
+        {
+            "location": "/liquid/cart/#cartshipping_address", 
+            "text": "Returns the  shipping address  of the current cart.", 
+            "title": "cart.shipping_address"
+        }, 
+        {
+            "location": "/liquid/cart/#cartbilling_address", 
+            "text": "Returns the  billing address  of the current cart.", 
+            "title": "cart.billing_address"
+        }, 
+        {
+            "location": "/liquid/cart/#cartshipping_methods", 
+            "text": "Returns a collection of  shipping methods  available for the current cart.", 
+            "title": "cart.shipping_methods"
+        }, 
+        {
+            "location": "/liquid/cart/#cartshipping_method", 
+            "text": "Returns the selected  shipping method  of the current cart.", 
+            "title": "cart.shipping_method"
+        }, 
+        {
+            "location": "/liquid/cart/#cartdiscount_code", 
+            "text": "Returns the  discount code  associated to the current cart.  Returns nil if no discount code is associated.", 
+            "title": "cart.discount_code"
+        }, 
+        {
+            "location": "/liquid/cart/#cartdiscount_code_value", 
+            "text": "Returns the monetary value of the discount code, always  = 0.", 
+            "title": "cart.discount_code_value"
+        }, 
+        {
+            "location": "/liquid/cart/#cartdifferent_billing_address", 
+            "text": "Wheter the  billing address  is different from the shipping address for the current cart.", 
+            "title": "cart.different_billing_address"
+        }, 
+        {
+            "location": "/liquid/cart/#cartitem_count", 
+            "text": "The number of the  line items  present in the current cart.", 
+            "title": "cart.item_count"
+        }, 
+        {
+            "location": "/liquid/cart/#carttotal_quantity", 
+            "text": "The total number of products in the current cart.", 
+            "title": "cart.total_quantity"
+        }, 
+        {
+            "location": "/liquid/cart/#cartline_items", 
+            "text": "Returns a collection of  line items  for the current cart.", 
+            "title": "cart.line_items"
+        }, 
+        {
+            "location": "/liquid/cart/#cartitems_price_without_discount", 
+            "text": "Returns the value of the products without applying any  discount code", 
+            "title": "cart.items_price_without_discount"
+        }, 
+        {
+            "location": "/liquid/cart/#cartitems_price", 
+            "text": "Returns the value of the products minus the value of the discount code when applicable.", 
+            "title": "cart.items_price"
+        }, 
+        {
+            "location": "/liquid/cart/#cartshipping_price", 
+            "text": "Returns the price of the selected shipping method.", 
+            "title": "cart.shipping_price"
+        }, 
+        {
+            "location": "/liquid/cart/#carttotal_price", 
+            "text": "Returns the grand total of the current cart.", 
+            "title": "cart.total_price"
+        }, 
+        {
+            "location": "/liquid/cart/#carttotal_weight", 
+            "text": "Returns the total weight of the cart in Kilograms.", 
+            "title": "cart.total_weight"
+        }, 
+        {
+            "location": "/liquid/country/", 
+            "text": "country.name\n\n\nThe full name of the country.\n\n\ncountry.id\n\n\nThe internal Id of the country.\n\n\ncountry.code\n\n\nReturns a two-letter \nISO 3166\n code of the country.\n\n\ncountry.continent\n\n\nReturns the two letter code of the continent.\n\n\nCan be either:\n\n\n\n\n\n\n\n\nCode\n\n\nContinent\n\n\n\n\n\n\n\n\n\n\nAN\n\n\nAntartica\n\n\n\n\n\n\nOC\n\n\nOceania\n\n\n\n\n\n\nAS\n\n\nAsia\n\n\n\n\n\n\nNA\n\n\nNorth America\n\n\n\n\n\n\nSA\n\n\nSouth America\n\n\n\n\n\n\nEU\n\n\nEurope", 
+            "title": "Country"
+        }, 
+        {
+            "location": "/liquid/country/#countryname", 
+            "text": "The full name of the country.", 
+            "title": "country.name"
+        }, 
+        {
+            "location": "/liquid/country/#countryid", 
+            "text": "The internal Id of the country.", 
+            "title": "country.id"
+        }, 
+        {
+            "location": "/liquid/country/#countrycode", 
+            "text": "Returns a two-letter  ISO 3166  code of the country.", 
+            "title": "country.code"
+        }, 
+        {
+            "location": "/liquid/country/#countrycontinent", 
+            "text": "Returns the two letter code of the continent.  Can be either:     Code  Continent      AN  Antartica    OC  Oceania    AS  Asia    NA  North America    SA  South America    EU  Europe", 
+            "title": "country.continent"
+        }, 
+        {
+            "location": "/liquid/currency/", 
+            "text": "currency.symbol\n\n\nReturns the currency's \nsymbol\n.\n\n\ncurrency.id\n\n\nReturns the currency's internal Id.\n\n\ncurrency.code\n\n\nReturns the currency's \nISO 4217\n code.\n\n\ncurrency.name\n\n\nReturns the currency's full human-readable name.", 
+            "title": "Currency"
+        }, 
+        {
+            "location": "/liquid/currency/#currencysymbol", 
+            "text": "Returns the currency's  symbol .", 
+            "title": "currency.symbol"
+        }, 
+        {
+            "location": "/liquid/currency/#currencyid", 
+            "text": "Returns the currency's internal Id.", 
+            "title": "currency.id"
+        }, 
+        {
+            "location": "/liquid/currency/#currencycode", 
+            "text": "Returns the currency's  ISO 4217  code.", 
+            "title": "currency.code"
+        }, 
+        {
+            "location": "/liquid/currency/#currencyname", 
+            "text": "Returns the currency's full human-readable name.", 
+            "title": "currency.name"
+        }, 
+        {
+            "location": "/liquid/customer/", 
+            "text": "customer.billing_address\n\n\nReturns the \nbilling address\n of the current customer.\n\n\ncustomer.shipping_address\n\n\nReturns the \nshipping address\n of the current customer.\n\n\ncustomer.country\n\n\nReturns the \ncountry\n of the current customer.\n\n\ncustomer.email\n\n\nReturns the email of the current customer.\n\n\ncustomer.currency\n\n\nReturns the \ncurrency\n of the current customer.\n\n\ncustomer.language\n\n\nReturns the language of the current customer.\n\n\ncustomer.accepted_cookies\n\n\nReturns wheter or not the current customer accepted the cookie policy.\n\n\ncustomer.id\n\n\nReturns the id of the current customer.\n\n\ncustomer.recommended_products\n\n\nRefer to \nMachine Learning\n.\n\n\ncustomer.may_also_like\n\n\nRefer to \nMachine Learning\n.\n\n\ncustomer.recently_viewed\n\n\nRefer to \nMachine Learning\n.", 
+            "title": "Customer"
+        }, 
+        {
+            "location": "/liquid/customer/#customerbilling_address", 
+            "text": "Returns the  billing address  of the current customer.", 
+            "title": "customer.billing_address"
+        }, 
+        {
+            "location": "/liquid/customer/#customershipping_address", 
+            "text": "Returns the  shipping address  of the current customer.", 
+            "title": "customer.shipping_address"
+        }, 
+        {
+            "location": "/liquid/customer/#customercountry", 
+            "text": "Returns the  country  of the current customer.", 
+            "title": "customer.country"
+        }, 
+        {
+            "location": "/liquid/customer/#customeremail", 
+            "text": "Returns the email of the current customer.", 
+            "title": "customer.email"
+        }, 
+        {
+            "location": "/liquid/customer/#customercurrency", 
+            "text": "Returns the  currency  of the current customer.", 
+            "title": "customer.currency"
+        }, 
+        {
+            "location": "/liquid/customer/#customerlanguage", 
+            "text": "Returns the language of the current customer.", 
+            "title": "customer.language"
+        }, 
+        {
+            "location": "/liquid/customer/#customeraccepted_cookies", 
+            "text": "Returns wheter or not the current customer accepted the cookie policy.", 
+            "title": "customer.accepted_cookies"
+        }, 
+        {
+            "location": "/liquid/customer/#customerid", 
+            "text": "Returns the id of the current customer.", 
+            "title": "customer.id"
+        }, 
+        {
+            "location": "/liquid/customer/#customerrecommended_products", 
+            "text": "Refer to  Machine Learning .", 
+            "title": "customer.recommended_products"
+        }, 
+        {
+            "location": "/liquid/customer/#customermay_also_like", 
+            "text": "Refer to  Machine Learning .", 
+            "title": "customer.may_also_like"
+        }, 
+        {
+            "location": "/liquid/customer/#customerrecently_viewed", 
+            "text": "Refer to  Machine Learning .", 
+            "title": "customer.recently_viewed"
+        }, 
+        {
+            "location": "/liquid/discount-code/", 
+            "text": "discount_code.code\n\n\nReturns the discount code alphanumeric value.\n\n\ndiscount_code.active\n\n\nReturns wheter or not the code is active and valid.\n\n\ndiscount_code.value\n\n\nReturns the discount code value.\n\n\nIt represents a monetary amount if the type is \nFixedAmountDiscount\n.\n\nIt represents a percentage if the type is \nPercentageDiscount\n.\n\n\ndiscount_code.amount\n\n\nAn alias for \nvalue\n\n\ndiscount_code.savings\n\n\nThe same as \nvalue\n, but with a negative sign.\n\n\ndiscount_code.type\n\n\nReturns the type of the discount code, can be either:\n\n\nPercentageDiscount\n: The discount is proportional to the total amount of the cart.\n\n\nFixedAmountDiscount\n: The discount has a fixed monetary value.\n\n\ndiscount_code.free_shipping\n\n\nWhen this value is \ntrue\n the \nshipping costs\n are 0.\n\nThis just means that this discount code entitles the customer to have its products shipped for free.", 
+            "title": "Discount Code"
+        }, 
+        {
+            "location": "/liquid/discount-code/#discount_codecode", 
+            "text": "Returns the discount code alphanumeric value.", 
+            "title": "discount_code.code"
+        }, 
+        {
+            "location": "/liquid/discount-code/#discount_codeactive", 
+            "text": "Returns wheter or not the code is active and valid.", 
+            "title": "discount_code.active"
+        }, 
+        {
+            "location": "/liquid/discount-code/#discount_codevalue", 
+            "text": "Returns the discount code value.  It represents a monetary amount if the type is  FixedAmountDiscount . \nIt represents a percentage if the type is  PercentageDiscount .", 
+            "title": "discount_code.value"
+        }, 
+        {
+            "location": "/liquid/discount-code/#discount_codeamount", 
+            "text": "An alias for  value", 
+            "title": "discount_code.amount"
+        }, 
+        {
+            "location": "/liquid/discount-code/#discount_codesavings", 
+            "text": "The same as  value , but with a negative sign.", 
+            "title": "discount_code.savings"
+        }, 
+        {
+            "location": "/liquid/discount-code/#discount_codetype", 
+            "text": "Returns the type of the discount code, can be either:  PercentageDiscount : The discount is proportional to the total amount of the cart.  FixedAmountDiscount : The discount has a fixed monetary value.", 
+            "title": "discount_code.type"
+        }, 
+        {
+            "location": "/liquid/discount-code/#discount_codefree_shipping", 
+            "text": "When this value is  true  the  shipping costs  are 0. \nThis just means that this discount code entitles the customer to have its products shipped for free.", 
+            "title": "discount_code.free_shipping"
+        }, 
+        {
+            "location": "/liquid/line-item/", 
+            "text": "line_item.product\n\n\nReturns the \nproduct\n associated with the line item.\n\nThis value is \nnil\n if the product has one or more \nvariants\n\n\nline_item.product_or_variant\n\n\nIf the \nproduct\n associated with the current item has a \nvariant\n, the selected variant is returned.\n\nOtherwise product itself is returned.\n\n\nline_item.default_image(size)\n\n\nReturns the default image for this line item.\n\n\nExample\n\n\n{{ line_item.default_image }}\n\n!-- Outputs the master image: //az763220.vo.msecnd.net/[...]/product-[...]-master --\n\n\n{{ line_item.default_image | img_url: 'medium' }}\n\n!-- Outputs the medium size image: //az763220.vo.msecnd.net/[...]/product-[...]-medium --\n\n\n\n\n\nline_item.featured_image(size)\n\n\nAn alias for \ndefault_image\n\n\nline_item.id\n\n\nThe line item internal Id.\n\n\nline_item.product_name\n\n\nAlways return the name of the base \nproduct\n.\n\n\n{{ line_item.product_name }}\n\n!-- Outputs: Samsung Galaxy S8 --\n\n\n\n\n\nline_item.variant_name\n\n\nReturns the name of the current \nvariant\n if any.\n\n\nExample\n\n\n{{ line_item.variant_name }}\n\n!-- Outputs: 25GB \u2022 Black --\n\n\n\n\n\nline_item.product_url\n\n\nReturns the url of the base \nproduct\n or the selected variant.\n\n\nline_item.product_compare_at_price\n\n\nReturns the compare at price of the \nbase product\n or the \nselected variant\n.\n\n\nline_item.product_price\n\n\nReturns the price of the \nbase product\n or the \nselected variant\n.\n\n\nline_item.line_compare_at_price\n\n\nReturns the \ncompare at price\n of the line item.\n\nIt is the \nproduct compare at price\n multiplied by the \nquantity\n.\n\n\nExample\n\n\n{{ line_item.product_compare_at_price }}\n\n!-- Outputs: 12 --\n\n\n{{ line_item.quantity }}\n\n!-- Outputs: 8 --\n\n\n{{ linet_item.line_compare_at_price }}\n\n!-- Outputs: 96 --\n\n\n\n\n\nline_item.line_price\n\n\nRetunrs the total price of the line.\nIt is the \nproduct price\n muliplied by the quantity.\n\n\nline_item.quantity\n\n\nReturns the quantity of the selected \nproduct", 
+            "title": "Line Item"
+        }, 
+        {
+            "location": "/liquid/line-item/#line_itemproduct", 
+            "text": "Returns the  product  associated with the line item. \nThis value is  nil  if the product has one or more  variants", 
+            "title": "line_item.product"
+        }, 
+        {
+            "location": "/liquid/line-item/#line_itemproduct_or_variant", 
+            "text": "If the  product  associated with the current item has a  variant , the selected variant is returned. \nOtherwise product itself is returned.", 
+            "title": "line_item.product_or_variant"
+        }, 
+        {
+            "location": "/liquid/line-item/#line_itemdefault_imagesize", 
+            "text": "Returns the default image for this line item.  Example  {{ line_item.default_image }} !-- Outputs the master image: //az763220.vo.msecnd.net/[...]/product-[...]-master -- \n\n{{ line_item.default_image | img_url: 'medium' }} !-- Outputs the medium size image: //az763220.vo.msecnd.net/[...]/product-[...]-medium --", 
+            "title": "line_item.default_image(size)"
+        }, 
+        {
+            "location": "/liquid/line-item/#line_itemfeatured_imagesize", 
+            "text": "An alias for  default_image", 
+            "title": "line_item.featured_image(size)"
+        }, 
+        {
+            "location": "/liquid/line-item/#line_itemid", 
+            "text": "The line item internal Id.", 
+            "title": "line_item.id"
+        }, 
+        {
+            "location": "/liquid/line-item/#line_itemproduct_name", 
+            "text": "Always return the name of the base  product .  {{ line_item.product_name }} !-- Outputs: Samsung Galaxy S8 --", 
+            "title": "line_item.product_name"
+        }, 
+        {
+            "location": "/liquid/line-item/#line_itemvariant_name", 
+            "text": "Returns the name of the current  variant  if any.  Example  {{ line_item.variant_name }} !-- Outputs: 25GB \u2022 Black --", 
+            "title": "line_item.variant_name"
+        }, 
+        {
+            "location": "/liquid/line-item/#line_itemproduct_url", 
+            "text": "Returns the url of the base  product  or the selected variant.", 
+            "title": "line_item.product_url"
+        }, 
+        {
+            "location": "/liquid/line-item/#line_itemproduct_compare_at_price", 
+            "text": "Returns the compare at price of the  base product  or the  selected variant .", 
+            "title": "line_item.product_compare_at_price"
+        }, 
+        {
+            "location": "/liquid/line-item/#line_itemproduct_price", 
+            "text": "Returns the price of the  base product  or the  selected variant .", 
+            "title": "line_item.product_price"
+        }, 
+        {
+            "location": "/liquid/line-item/#line_itemline_compare_at_price", 
+            "text": "Returns the  compare at price  of the line item. \nIt is the  product compare at price  multiplied by the  quantity .  Example  {{ line_item.product_compare_at_price }} !-- Outputs: 12 -- \n\n{{ line_item.quantity }} !-- Outputs: 8 -- \n\n{{ linet_item.line_compare_at_price }} !-- Outputs: 96 --", 
+            "title": "line_item.line_compare_at_price"
+        }, 
+        {
+            "location": "/liquid/line-item/#line_itemline_price", 
+            "text": "Retunrs the total price of the line.\nIt is the  product price  muliplied by the quantity.", 
+            "title": "line_item.line_price"
+        }, 
+        {
+            "location": "/liquid/line-item/#line_itemquantity", 
+            "text": "Returns the quantity of the selected  product", 
+            "title": "line_item.quantity"
+        }, 
+        {
+            "location": "/liquid/link/", 
+            "text": "link.active\n\n\nReturns true if the current page is the one pointed by the link.\n\n\nlink.object\n\n\nReturns the object pointed by this link.\n\n\nIt is only applicable for the following types:\n\n\n\n\npage_link\n\n\ncategory_link\n\n\nproduct_link\n\n\narticle_link\n\n\n\n\nlink.name\n\n\nReturns the name of the link.\n\n\nlink.title\n\n\nAn alias for \nname\n.\n\n\nlink.type\n\n\nReturns the type of the link.\n\n\nPossible values:\n\n\n\n\n\n\n\n\nReturn value\n\n\nMeaning\n\n\n\n\n\n\n\n\n\n\nhomepage_link\n\n\nThe link will point to \n/\n\n\n\n\n\n\ncategory_link\n\n\nThe link points to a category\n\n\n\n\n\n\nproduct_link\n\n\nThe link points to a product\n\n\n\n\n\n\npage_link\n\n\nThe link points to a page\n\n\n\n\n\n\nblog_link\n\n\nThe link points to blog\n\n\n\n\n\n\nsocial_link\n\n\nThe link points to a social network page of the \nshop\n\n\n\n\n\n\narticle_link\n\n\nThe link points to a blog post\n\n\n\n\n\n\nhttp_link\n\n\nThe link points to a specific url\n\n\n\n\n\n\n\n\nlink.url\n\n\nReturns the url pointed by this link.", 
+            "title": "Link"
+        }, 
+        {
+            "location": "/liquid/link/#linkactive", 
+            "text": "Returns true if the current page is the one pointed by the link.", 
+            "title": "link.active"
+        }, 
+        {
+            "location": "/liquid/link/#linkobject", 
+            "text": "Returns the object pointed by this link.  It is only applicable for the following types:   page_link  category_link  product_link  article_link", 
+            "title": "link.object"
+        }, 
+        {
+            "location": "/liquid/link/#linkname", 
+            "text": "Returns the name of the link.", 
+            "title": "link.name"
+        }, 
+        {
+            "location": "/liquid/link/#linktitle", 
+            "text": "An alias for  name .", 
+            "title": "link.title"
+        }, 
+        {
+            "location": "/liquid/link/#linktype", 
+            "text": "Returns the type of the link.  Possible values:     Return value  Meaning      homepage_link  The link will point to  /    category_link  The link points to a category    product_link  The link points to a product    page_link  The link points to a page    blog_link  The link points to blog    social_link  The link points to a social network page of the  shop    article_link  The link points to a blog post    http_link  The link points to a specific url", 
+            "title": "link.type"
+        }, 
+        {
+            "location": "/liquid/link/#linkurl", 
+            "text": "Returns the url pointed by this link.", 
+            "title": "link.url"
+        }, 
+        {
+            "location": "/liquid/link-list/", 
+            "text": "link-list.name\n\n\nReturns the full name of the link list.\n\n\nlink-list.title\n\n\nAn alias for \nname\n\n\nlink-list.id\n\n\nReturns the iternal link list Id.\n\n\nlink-list.friendly_name\n\n\nReturns the friendly name of the link list.\n\n\nlink-list.handle\n\n\nAn alias for \nfriendly_name\n\n\nlink-list.links\n\n\nReturns a collection of \nlinks", 
+            "title": "Link List"
+        }, 
+        {
+            "location": "/liquid/link-list/#link-listname", 
+            "text": "Returns the full name of the link list.", 
+            "title": "link-list.name"
+        }, 
+        {
+            "location": "/liquid/link-list/#link-listtitle", 
+            "text": "An alias for  name", 
+            "title": "link-list.title"
+        }, 
+        {
+            "location": "/liquid/link-list/#link-listid", 
+            "text": "Returns the iternal link list Id.", 
+            "title": "link-list.id"
+        }, 
+        {
+            "location": "/liquid/link-list/#link-listfriendly_name", 
+            "text": "Returns the friendly name of the link list.", 
+            "title": "link-list.friendly_name"
+        }, 
+        {
+            "location": "/liquid/link-list/#link-listhandle", 
+            "text": "An alias for  friendly_name", 
+            "title": "link-list.handle"
+        }, 
+        {
+            "location": "/liquid/link-list/#link-listlinks", 
+            "text": "Returns a collection of  links", 
+            "title": "link-list.links"
+        }, 
+        {
+            "location": "/liquid/user/", 
+            "text": "user.bio\n\n\nReturns the bio of the user.\n\n\nuser.email\n\n\nReturns the email of the user.\n\n\nuser.first_name\n\n\nReturns the first name of the user.\n\n\nuser.last_name\n\n\nReturns the last name of the user.\n\n\nuser.homepage\n\n\nReturns the website url of the user.", 
+            "title": "User"
+        }, 
+        {
+            "location": "/liquid/user/#userbio", 
+            "text": "Returns the bio of the user.", 
+            "title": "user.bio"
+        }, 
+        {
+            "location": "/liquid/user/#useremail", 
+            "text": "Returns the email of the user.", 
+            "title": "user.email"
+        }, 
+        {
+            "location": "/liquid/user/#userfirst_name", 
+            "text": "Returns the first name of the user.", 
+            "title": "user.first_name"
+        }, 
+        {
+            "location": "/liquid/user/#userlast_name", 
+            "text": "Returns the last name of the user.", 
+            "title": "user.last_name"
+        }, 
+        {
+            "location": "/liquid/user/#userhomepage", 
+            "text": "Returns the website url of the user.", 
+            "title": "user.homepage"
+        }, 
+        {
+            "location": "/liquid/shipping-method/", 
+            "text": "shipping_method.id\n\n\nReturns the internal Id.\n\n\nshipping_method.name\n\n\nReturns the name of the shipping method\n\n\nshipping_method.title\n\n\nAn alias for \nname\n.\n\n\nshipping_method.price\n\n\nReturns the price of the shipping method.", 
+            "title": "Shipping Method"
+        }, 
+        {
+            "location": "/liquid/shipping-method/#shipping_methodid", 
+            "text": "Returns the internal Id.", 
+            "title": "shipping_method.id"
+        }, 
+        {
+            "location": "/liquid/shipping-method/#shipping_methodname", 
+            "text": "Returns the name of the shipping method", 
+            "title": "shipping_method.name"
+        }, 
+        {
+            "location": "/liquid/shipping-method/#shipping_methodtitle", 
+            "text": "An alias for  name .", 
+            "title": "shipping_method.title"
+        }, 
+        {
+            "location": "/liquid/shipping-method/#shipping_methodprice", 
+            "text": "Returns the price of the shipping method.", 
+            "title": "shipping_method.price"
+        }, 
+        {
+            "location": "/liquid/shop/", 
+            "text": "shop.name\n\n\nReturns the shop's name.\n\n\nshop.decription\n\n\nReturn the shop's description.\n\n\nshop.currency_code\n\n\nReturns the shop's default three-letter \nISO 4217\n currency code (ex: USD).\n\n\nshop.currency_symbol\n\n\nReturns the shop's currency \nISO 4217\n symbol (ex: $).\n\n\nshop.currency_name\n\n\nReturns the shop's currency name (ex: \"American Dollars\").\n\n\nshop.vat_id\n\n\nReturns the vat id of the current shop.\n\n\nshop.domain\n\n\nReturns the primary domain of the shop.\n\n\nshop.permanent_domain\n\n\nReturns a \nshop-name\n.\nagency-domain\n.com\n URL of the current shop.\n\n\nshop.url\n\n\nReturns the full url for the current shop\n\n\nExample\n\n\n{{ shop.url }}\n\n!-- Outputs: http://www.my-shop.com --\n\n\n\n\n\nIf the agency domain is not set a \nshop-name\n.johndoeshop.com\n domain is returned.\n\n\nshop.address\n\n\nReturns the \naddress\n of the shop\n\n\nshop.latest_products\n\n\nRefer to \nMachine Learning\n.\n\n\nshop.best_sellers\n\n\nRefer to \nMachine Learning\n.\n\n\nshop.trending_products\n\n\nRefer to \nMachine Learning\n.\n\n\nshop.social_links\n\n\nReturns a list of the shop's social networks pages.\n\n\nExample\n\n\n{{ shop.social_links.facebook }}\n\n!-- Outputs: https://www.facebook.com/johndoeshop --\n\n\n\n\n\nshop.categories_count\n\n\nReturns the number of the root categories of the current shop.\n\n\nshop.deep_categories_count\n\n\nReturns the number of all the categories of the current shop.\n\n\nshop.languages\n\n\nReturns a list of the available languages for the current shop.\n\n\nEach language has the following properties:\n\n\n\n\n\n\n\n\nProperty\n\n\nSample value\n\n\n\n\n\n\n\n\n\n\nname\n\n\nItalian\n\n\n\n\n\n\ncode\n\n\nit\n\n\n\n\n\n\nurl\n\n\n/set_language/it\n\n\n\n\n\n\n\n\nshop.products_count\n\n\nReturns the number of all the products for the current shop.\n\n\nshop.ship_to_countries\n\n\nReturns a collection of \ncountries\n that have at least one shipping method available. \n\n\nshop.enabled_payment_types\n\n\nReturns a list of the enabled payment processors.\n\n\nExample\n\n\n{{ shop.enabled_payment_types }}\n\n!-- Outputs: ['paypal', 'braintree'] --\n\n\n\n\n\nshop.locale\n\n\nReturns the current selected locale.\n\n\nAlias for \ncustomer.locale\n\n\nshop.description\n\n\nReturns the current shop's description.\n\n\nshop.name\n\n\nReturns the current shop's name.\n\n\nshop.agency_name\n\n\nReturns the name of the shop's agency.\n\n\nshop.agency_url\n\n\nReturn the url of the shop's agency.", 
+            "title": "Shop"
+        }, 
+        {
+            "location": "/liquid/shop/#shopname", 
+            "text": "Returns the shop's name.", 
+            "title": "shop.name"
+        }, 
+        {
+            "location": "/liquid/shop/#shopdecription", 
+            "text": "Return the shop's description.", 
+            "title": "shop.decription"
+        }, 
+        {
+            "location": "/liquid/shop/#shopcurrency_code", 
+            "text": "Returns the shop's default three-letter  ISO 4217  currency code (ex: USD).", 
+            "title": "shop.currency_code"
+        }, 
+        {
+            "location": "/liquid/shop/#shopcurrency_symbol", 
+            "text": "Returns the shop's currency  ISO 4217  symbol (ex: $).", 
+            "title": "shop.currency_symbol"
+        }, 
+        {
+            "location": "/liquid/shop/#shopcurrency_name", 
+            "text": "Returns the shop's currency name (ex: \"American Dollars\").", 
+            "title": "shop.currency_name"
+        }, 
+        {
+            "location": "/liquid/shop/#shopvat_id", 
+            "text": "Returns the vat id of the current shop.", 
+            "title": "shop.vat_id"
+        }, 
+        {
+            "location": "/liquid/shop/#shopdomain", 
+            "text": "Returns the primary domain of the shop.", 
+            "title": "shop.domain"
+        }, 
+        {
+            "location": "/liquid/shop/#shoppermanent_domain", 
+            "text": "Returns a  shop-name . agency-domain .com  URL of the current shop.", 
+            "title": "shop.permanent_domain"
+        }, 
+        {
+            "location": "/liquid/shop/#shopurl", 
+            "text": "Returns the full url for the current shop  Example  {{ shop.url }} !-- Outputs: http://www.my-shop.com --   If the agency domain is not set a  shop-name .johndoeshop.com  domain is returned.", 
+            "title": "shop.url"
+        }, 
+        {
+            "location": "/liquid/shop/#shopaddress", 
+            "text": "Returns the  address  of the shop", 
+            "title": "shop.address"
+        }, 
+        {
+            "location": "/liquid/shop/#shoplatest_products", 
+            "text": "Refer to  Machine Learning .", 
+            "title": "shop.latest_products"
+        }, 
+        {
+            "location": "/liquid/shop/#shopbest_sellers", 
+            "text": "Refer to  Machine Learning .", 
+            "title": "shop.best_sellers"
+        }, 
+        {
+            "location": "/liquid/shop/#shoptrending_products", 
+            "text": "Refer to  Machine Learning .", 
+            "title": "shop.trending_products"
+        }, 
+        {
+            "location": "/liquid/shop/#shopsocial_links", 
+            "text": "Returns a list of the shop's social networks pages.  Example  {{ shop.social_links.facebook }} !-- Outputs: https://www.facebook.com/johndoeshop --", 
+            "title": "shop.social_links"
+        }, 
+        {
+            "location": "/liquid/shop/#shopcategories_count", 
+            "text": "Returns the number of the root categories of the current shop.", 
+            "title": "shop.categories_count"
+        }, 
+        {
+            "location": "/liquid/shop/#shopdeep_categories_count", 
+            "text": "Returns the number of all the categories of the current shop.", 
+            "title": "shop.deep_categories_count"
+        }, 
+        {
+            "location": "/liquid/shop/#shoplanguages", 
+            "text": "Returns a list of the available languages for the current shop.  Each language has the following properties:     Property  Sample value      name  Italian    code  it    url  /set_language/it", 
+            "title": "shop.languages"
+        }, 
+        {
+            "location": "/liquid/shop/#shopproducts_count", 
+            "text": "Returns the number of all the products for the current shop.", 
+            "title": "shop.products_count"
+        }, 
+        {
+            "location": "/liquid/shop/#shopship_to_countries", 
+            "text": "Returns a collection of  countries  that have at least one shipping method available.", 
+            "title": "shop.ship_to_countries"
+        }, 
+        {
+            "location": "/liquid/shop/#shopenabled_payment_types", 
+            "text": "Returns a list of the enabled payment processors.  Example  {{ shop.enabled_payment_types }} !-- Outputs: ['paypal', 'braintree'] --", 
+            "title": "shop.enabled_payment_types"
+        }, 
+        {
+            "location": "/liquid/shop/#shoplocale", 
+            "text": "Returns the current selected locale.  Alias for  customer.locale", 
+            "title": "shop.locale"
+        }, 
+        {
+            "location": "/liquid/shop/#shopdescription", 
+            "text": "Returns the current shop's description.", 
+            "title": "shop.description"
+        }, 
+        {
+            "location": "/liquid/shop/#shopname_1", 
+            "text": "Returns the current shop's name.", 
+            "title": "shop.name"
+        }, 
+        {
+            "location": "/liquid/shop/#shopagency_name", 
+            "text": "Returns the name of the shop's agency.", 
+            "title": "shop.agency_name"
+        }, 
+        {
+            "location": "/liquid/shop/#shopagency_url", 
+            "text": "Return the url of the shop's agency.", 
+            "title": "shop.agency_url"
+        }, 
+        {
+            "location": "/liquid/article/", 
+            "text": "article.author\n\n\nReturns the full name of the author of the article.\n\n\narticle.user\n\n\nReturns the \nuser\n who created this article.\n\n\narticle.content\n\n\nReturns the full content of the article.\n\n\narticle.excerpt\n\n\nReturns the excerpt of the article if any.\n\n\narticle.excerpt_or_content\n\n\nReturns the excerpt of the article if present.\n\nOtherwise the full content is returned.\n\n\narticle.id\n\n\nReturns the internal Id.\n\n\narticle.tags\n\n\nReturns a list of tags.\n\n\narticle.image\n\n\nReturns the image of the article\n\n\narticle.default_image\n\n\nAn alias for \nimage\n.\n\n\narticle.featured_image\n\n\nAn alias for \nimage\n.\n\n\narticle.name\n\n\nReturns the name of the article.\n\n\narticle.previous\n\n\nReturns the previous article.\n\n\narticle.next\n\n\nReturns the next article.\n\n\narticle.title\n\n\nAn alias for \nname\n\n\narticle.created_at\n\n\nReturns the creation date of the article.\n\n\narticle.published_at\n\n\nReturns the publication date of the article.\n\n\narticle.url\n\n\nReturns the url of the article", 
+            "title": "Article"
+        }, 
+        {
+            "location": "/liquid/article/#articleauthor", 
+            "text": "Returns the full name of the author of the article.", 
+            "title": "article.author"
+        }, 
+        {
+            "location": "/liquid/article/#articleuser", 
+            "text": "Returns the  user  who created this article.", 
+            "title": "article.user"
+        }, 
+        {
+            "location": "/liquid/article/#articlecontent", 
+            "text": "Returns the full content of the article.", 
+            "title": "article.content"
+        }, 
+        {
+            "location": "/liquid/article/#articleexcerpt", 
+            "text": "Returns the excerpt of the article if any.", 
+            "title": "article.excerpt"
+        }, 
+        {
+            "location": "/liquid/article/#articleexcerpt_or_content", 
+            "text": "Returns the excerpt of the article if present. \nOtherwise the full content is returned.", 
+            "title": "article.excerpt_or_content"
+        }, 
+        {
+            "location": "/liquid/article/#articleid", 
+            "text": "Returns the internal Id.", 
+            "title": "article.id"
+        }, 
+        {
+            "location": "/liquid/article/#articletags", 
+            "text": "Returns a list of tags.", 
+            "title": "article.tags"
+        }, 
+        {
+            "location": "/liquid/article/#articleimage", 
+            "text": "Returns the image of the article", 
+            "title": "article.image"
+        }, 
+        {
+            "location": "/liquid/article/#articledefault_image", 
+            "text": "An alias for  image .", 
+            "title": "article.default_image"
+        }, 
+        {
+            "location": "/liquid/article/#articlefeatured_image", 
+            "text": "An alias for  image .", 
+            "title": "article.featured_image"
+        }, 
+        {
+            "location": "/liquid/article/#articlename", 
+            "text": "Returns the name of the article.", 
+            "title": "article.name"
+        }, 
+        {
+            "location": "/liquid/article/#articleprevious", 
+            "text": "Returns the previous article.", 
+            "title": "article.previous"
+        }, 
+        {
+            "location": "/liquid/article/#articlenext", 
+            "text": "Returns the next article.", 
+            "title": "article.next"
+        }, 
+        {
+            "location": "/liquid/article/#articletitle", 
+            "text": "An alias for  name", 
+            "title": "article.title"
+        }, 
+        {
+            "location": "/liquid/article/#articlecreated_at", 
+            "text": "Returns the creation date of the article.", 
+            "title": "article.created_at"
+        }, 
+        {
+            "location": "/liquid/article/#articlepublished_at", 
+            "text": "Returns the publication date of the article.", 
+            "title": "article.published_at"
+        }, 
+        {
+            "location": "/liquid/article/#articleurl", 
+            "text": "Returns the url of the article", 
+            "title": "article.url"
+        }, 
+        {
+            "location": "/liquid/category/", 
+            "text": "category.name\n\n\nReturns the name of the category.\n\n\ncategory.title\n\n\nAn alias for \nname\n\n\ncategory.friendly_name\n\n\nReturns the friendly name of the category.\n\n\ncategory.handle\n\n\nAn alias for \nfriendly_name\n\n\ncategory.id\n\n\nReturns the internal Id.\n\n\ncategory.default_sort_by\n\n\nReturns the default sorting for the category.\n\n\ncategory.current_sort_by\n\n\nReturns the customer selected sorting for the category.\nThis can be set using the \nsort_by\n \nGET\n parameter.\n\n\ncategory.products_price_min\n\n\nReturns the price of the cheapest product in the category.\n\n\ncategory.products_price_max\n\n\nReturns the price of the most expensive product in the category.\n\n\ncategory.current_price_min\n\n\nReturns the current \nfilter by price\n minimum price.\n\nThis can be set using the \nprice_min\n \nGET\n parameter.\n\n\ncategory.current_price_max\n\n\nReturns the current \nfilter by price\n maximum price.\n\nThis can be set using the \nprice_max\n \nGET\n parameter.\n\n\ncategory.all_vendors\n\n\nReturns a list containing the name of all the vendor of the products in this category.\n\n\ncategory.current_vendor\n\n\nReturns the name of the current \nfilter by vendor\n.\n\nThis can be set using the \nvendor\n \nGET\n parameter. \n\n\ncategory.tags\n\n\nReturns a list of all the tags of the products in the current category.\n\n\ncategory.current_tags\n\n\nReturns the current \nfilter by tag\n.\n\nThis can be set passing a JSON array to the \ntags\n \nGET\n parameter.\n\n\ncategory.products\n\n\nReturns a collection of \nproducts\n\n\nThe collection is filter aware.\n\n\ncategory.products_count\n\n\nReturns the number of products in the current category, without applying any filter.\n\n\ncategory.depth\n\n\nThe depth of the current category.\n\n\ncategory.deep_products_count\n\n\nThe number of the products in the current category and all its children categories.\n\n\ncategory.image\n\n\nReturns the image of the category.\n\n\ncategory.default_image\n\n\nAn alias for \nimage\n.\n\n\ncategory.featured_image\n\n\nAn alias for \nimage\n.\n\n\ncategory.url\n\n\nReturns the category url.", 
+            "title": "Category"
+        }, 
+        {
+            "location": "/liquid/category/#categoryname", 
+            "text": "Returns the name of the category.", 
+            "title": "category.name"
+        }, 
+        {
+            "location": "/liquid/category/#categorytitle", 
+            "text": "An alias for  name", 
+            "title": "category.title"
+        }, 
+        {
+            "location": "/liquid/category/#categoryfriendly_name", 
+            "text": "Returns the friendly name of the category.", 
+            "title": "category.friendly_name"
+        }, 
+        {
+            "location": "/liquid/category/#categoryhandle", 
+            "text": "An alias for  friendly_name", 
+            "title": "category.handle"
+        }, 
+        {
+            "location": "/liquid/category/#categoryid", 
+            "text": "Returns the internal Id.", 
+            "title": "category.id"
+        }, 
+        {
+            "location": "/liquid/category/#categorydefault_sort_by", 
+            "text": "Returns the default sorting for the category.", 
+            "title": "category.default_sort_by"
+        }, 
+        {
+            "location": "/liquid/category/#categorycurrent_sort_by", 
+            "text": "Returns the customer selected sorting for the category.\nThis can be set using the  sort_by   GET  parameter.", 
+            "title": "category.current_sort_by"
+        }, 
+        {
+            "location": "/liquid/category/#categoryproducts_price_min", 
+            "text": "Returns the price of the cheapest product in the category.", 
+            "title": "category.products_price_min"
+        }, 
+        {
+            "location": "/liquid/category/#categoryproducts_price_max", 
+            "text": "Returns the price of the most expensive product in the category.", 
+            "title": "category.products_price_max"
+        }, 
+        {
+            "location": "/liquid/category/#categorycurrent_price_min", 
+            "text": "Returns the current  filter by price  minimum price. \nThis can be set using the  price_min   GET  parameter.", 
+            "title": "category.current_price_min"
+        }, 
+        {
+            "location": "/liquid/category/#categorycurrent_price_max", 
+            "text": "Returns the current  filter by price  maximum price. \nThis can be set using the  price_max   GET  parameter.", 
+            "title": "category.current_price_max"
+        }, 
+        {
+            "location": "/liquid/category/#categoryall_vendors", 
+            "text": "Returns a list containing the name of all the vendor of the products in this category.", 
+            "title": "category.all_vendors"
+        }, 
+        {
+            "location": "/liquid/category/#categorycurrent_vendor", 
+            "text": "Returns the name of the current  filter by vendor . \nThis can be set using the  vendor   GET  parameter.", 
+            "title": "category.current_vendor"
+        }, 
+        {
+            "location": "/liquid/category/#categorytags", 
+            "text": "Returns a list of all the tags of the products in the current category.", 
+            "title": "category.tags"
+        }, 
+        {
+            "location": "/liquid/category/#categorycurrent_tags", 
+            "text": "Returns the current  filter by tag . \nThis can be set passing a JSON array to the  tags   GET  parameter.", 
+            "title": "category.current_tags"
+        }, 
+        {
+            "location": "/liquid/category/#categoryproducts", 
+            "text": "Returns a collection of  products  The collection is filter aware.", 
+            "title": "category.products"
+        }, 
+        {
+            "location": "/liquid/category/#categoryproducts_count", 
+            "text": "Returns the number of products in the current category, without applying any filter.", 
+            "title": "category.products_count"
+        }, 
+        {
+            "location": "/liquid/category/#categorydepth", 
+            "text": "The depth of the current category.", 
+            "title": "category.depth"
+        }, 
+        {
+            "location": "/liquid/category/#categorydeep_products_count", 
+            "text": "The number of the products in the current category and all its children categories.", 
+            "title": "category.deep_products_count"
+        }, 
+        {
+            "location": "/liquid/category/#categoryimage", 
+            "text": "Returns the image of the category.", 
+            "title": "category.image"
+        }, 
+        {
+            "location": "/liquid/category/#categorydefault_image", 
+            "text": "An alias for  image .", 
+            "title": "category.default_image"
+        }, 
+        {
+            "location": "/liquid/category/#categoryfeatured_image", 
+            "text": "An alias for  image .", 
+            "title": "category.featured_image"
+        }, 
+        {
+            "location": "/liquid/category/#categoryurl", 
+            "text": "Returns the category url.", 
+            "title": "category.url"
+        }, 
+        {
+            "location": "/liquid/fulfillment/", 
+            "text": "fulfillment.tracking_number\n\n\nReturns the tracking number of the fulfillment\n\n\nfulfillment.tracking_company\n\n\nReturns the tracking company of the fulfillment\n\n\nfulfillment.notes\n\n\nReturns any note the merchant added to this fulfillment\n\n\nfulfillment.line_items\n\n\nReturns a collection of \nline items\n representing the products and quantities shipped with this fulfillment", 
+            "title": "Fulfillment"
+        }, 
+        {
+            "location": "/liquid/fulfillment/#fulfillmenttracking_number", 
+            "text": "Returns the tracking number of the fulfillment", 
+            "title": "fulfillment.tracking_number"
+        }, 
+        {
+            "location": "/liquid/fulfillment/#fulfillmenttracking_company", 
+            "text": "Returns the tracking company of the fulfillment", 
+            "title": "fulfillment.tracking_company"
+        }, 
+        {
+            "location": "/liquid/fulfillment/#fulfillmentnotes", 
+            "text": "Returns any note the merchant added to this fulfillment", 
+            "title": "fulfillment.notes"
+        }, 
+        {
+            "location": "/liquid/fulfillment/#fulfillmentline_items", 
+            "text": "Returns a collection of  line items  representing the products and quantities shipped with this fulfillment", 
+            "title": "fulfillment.line_items"
+        }, 
+        {
+            "location": "/liquid/order/", 
+            "text": "order.email\n\n\nReturns the email of the customer.\n\n\norder.created_at\n\n\nReturns the time when the order was placed.\n\n\norder.different_billing_address\n\n\nReturns wether or not the \nbilling address\n is the same as the \nshipping address\n.\n\n\norder.billing_address\n\n\nReturns the \nbilling address\n of the order.\nThis can be nil in case the \ndifferent_billing_address\n is set to false.\n\n\norder.shipping_address\n\n\nReturns the \nshipping address\n\n\norder.customer\n\n\norder.discount_code\n\n\norder.financial_status\n\n\norder.fulfillment_status\n\n\norder.line_items\n\n\norder.name\n\n\norder.shipping_method\n\n\norder.shipping_price\n\n\norder.items_price\n\n\norder.total_price", 
+            "title": "Order"
+        }, 
+        {
+            "location": "/liquid/order/#orderemail", 
+            "text": "Returns the email of the customer.", 
+            "title": "order.email"
+        }, 
+        {
+            "location": "/liquid/order/#ordercreated_at", 
+            "text": "Returns the time when the order was placed.", 
+            "title": "order.created_at"
+        }, 
+        {
+            "location": "/liquid/order/#orderdifferent_billing_address", 
+            "text": "Returns wether or not the  billing address  is the same as the  shipping address .", 
+            "title": "order.different_billing_address"
+        }, 
+        {
+            "location": "/liquid/order/#orderbilling_address", 
+            "text": "Returns the  billing address  of the order.\nThis can be nil in case the  different_billing_address  is set to false.", 
+            "title": "order.billing_address"
+        }, 
+        {
+            "location": "/liquid/order/#ordershipping_address", 
+            "text": "Returns the  shipping address", 
+            "title": "order.shipping_address"
+        }, 
+        {
+            "location": "/liquid/order/#ordercustomer", 
+            "text": "", 
+            "title": "order.customer"
+        }, 
+        {
+            "location": "/liquid/order/#orderdiscount_code", 
+            "text": "", 
+            "title": "order.discount_code"
+        }, 
+        {
+            "location": "/liquid/order/#orderfinancial_status", 
+            "text": "", 
+            "title": "order.financial_status"
+        }, 
+        {
+            "location": "/liquid/order/#orderfulfillment_status", 
+            "text": "", 
+            "title": "order.fulfillment_status"
+        }, 
+        {
+            "location": "/liquid/order/#orderline_items", 
+            "text": "", 
+            "title": "order.line_items"
+        }, 
+        {
+            "location": "/liquid/order/#ordername", 
+            "text": "", 
+            "title": "order.name"
+        }, 
+        {
+            "location": "/liquid/order/#ordershipping_method", 
+            "text": "", 
+            "title": "order.shipping_method"
+        }, 
+        {
+            "location": "/liquid/order/#ordershipping_price", 
+            "text": "", 
+            "title": "order.shipping_price"
+        }, 
+        {
+            "location": "/liquid/order/#orderitems_price", 
+            "text": "", 
+            "title": "order.items_price"
+        }, 
+        {
+            "location": "/liquid/order/#ordertotal_price", 
+            "text": "", 
+            "title": "order.total_price"
+        }, 
+        {
+            "location": "/liquid/page/", 
+            "text": "", 
+            "title": "Page"
+        }, 
+        {
+            "location": "/liquid/product/", 
+            "text": "", 
+            "title": "Product"
+        }, 
+        {
+            "location": "/liquid/refund/", 
+            "text": "", 
+            "title": "Refund"
+        }, 
+        {
+            "location": "/liquid/variant/", 
+            "text": "", 
+            "title": "Variant"
+        }, 
+        {
+            "location": "/machine-learning/", 
+            "text": "", 
+            "title": "Machine Learning"
+        }, 
+        {
+            "location": "/checkout/", 
+            "text": "", 
+            "title": "Checkout Flow"
+        }, 
+        {
+            "location": "/javascript/", 
+            "text": "", 
+            "title": "Javascript Library"
+        }, 
+        {
+            "location": "/endpoints/", 
+            "text": "Cart\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/cart.json\n\n\n\n\nProduct\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/products/\nproduct_friendly_name\n.json\n\n\n\n\nCategory\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/categories/\ncategory_friendly_name\n.json\n\n\n\n\nCart full\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/cart/full.ajax\n\n\n\n\nCart mini\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/cart/mini.ajax\n\n\n\n\nCart additional\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/cart/additional.ajax\n\n\n\n\nSet currency\n\n\n\n\nMethod: \nPATCH\n\n\n\n\nSet language\n\n\n\n\nMethod: \nPATCH\n\n\n\n\nSet country\n\n\n\n\nMethod: \nPATCH\n\n\n\n\nAccept cookies\n\n\n\n\nMethod: \nPATCH\n\n\n\n\nAdd to cart\n\n\n\n\nMethod: \nPOST\n\n\n\n\nDelete from cart\n\n\n\n\nMethod: \nDELETE\n\n\n\n\nUpdate line item quantity\n\n\n\n\nMethod: \nPATCH\n\n\n\n\nIncrease line item quantity\n\n\n\n\nMethod: \nPATCH\n\n\n\n\nDecrease line item quantity\n\n\n\n\nMethod: \nPATCH", 
+            "title": "JSON Endpoints"
+        }, 
+        {
+            "location": "/endpoints/#cart", 
+            "text": "Method:  GET  URL:  /cart.json", 
+            "title": "Cart"
+        }, 
+        {
+            "location": "/endpoints/#product", 
+            "text": "Method:  GET  URL:  /products/ product_friendly_name .json", 
+            "title": "Product"
+        }, 
+        {
+            "location": "/endpoints/#category", 
+            "text": "Method:  GET  URL:  /categories/ category_friendly_name .json", 
+            "title": "Category"
+        }, 
+        {
+            "location": "/endpoints/#cart-full", 
+            "text": "Method:  GET  URL:  /cart/full.ajax", 
+            "title": "Cart full"
+        }, 
+        {
+            "location": "/endpoints/#cart-mini", 
+            "text": "Method:  GET  URL:  /cart/mini.ajax", 
+            "title": "Cart mini"
+        }, 
+        {
+            "location": "/endpoints/#cart-additional", 
+            "text": "Method:  GET  URL:  /cart/additional.ajax", 
+            "title": "Cart additional"
+        }, 
+        {
+            "location": "/endpoints/#set-currency", 
+            "text": "Method:  PATCH", 
+            "title": "Set currency"
+        }, 
+        {
+            "location": "/endpoints/#set-language", 
+            "text": "Method:  PATCH", 
+            "title": "Set language"
+        }, 
+        {
+            "location": "/endpoints/#set-country", 
+            "text": "Method:  PATCH", 
+            "title": "Set country"
+        }, 
+        {
+            "location": "/endpoints/#accept-cookies", 
+            "text": "Method:  PATCH", 
+            "title": "Accept cookies"
+        }, 
+        {
+            "location": "/endpoints/#add-to-cart", 
+            "text": "Method:  POST", 
+            "title": "Add to cart"
+        }, 
+        {
+            "location": "/endpoints/#delete-from-cart", 
+            "text": "Method:  DELETE", 
+            "title": "Delete from cart"
+        }, 
+        {
+            "location": "/endpoints/#update-line-item-quantity", 
+            "text": "Method:  PATCH", 
+            "title": "Update line item quantity"
+        }, 
+        {
+            "location": "/endpoints/#increase-line-item-quantity", 
+            "text": "Method:  PATCH", 
+            "title": "Increase line item quantity"
+        }, 
+        {
+            "location": "/endpoints/#decrease-line-item-quantity", 
+            "text": "Method:  PATCH", 
+            "title": "Decrease line item quantity"
+        }
+    ]
+}
