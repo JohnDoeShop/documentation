@@ -38,5 +38,6 @@ pages:
         - Variant: 'liquid/variant.md'
   - 'Machine Learning': 'machine-learning.md'
   - 'Checkout Flow': 'checkout.md'
+  - 'Javascript Library': 'javascript.md'
   - 'JSON Endpoints': 'endpoints.md'
 theme: readthedocs
