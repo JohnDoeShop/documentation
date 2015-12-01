@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Machine Learning - John Doe Shop</title>
+  <title>Cart - John Doe Shop</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Machine Learning";
+    var mkdocs_page_name = "Cart";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -136,8 +136,60 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../cart/">Cart</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Cart</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#cartcustomer_notes">cart.customer_notes</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cartshipping_address">cart.shipping_address</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cartbilling_address">cart.billing_address</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cartshipping_methods">cart.shipping_methods</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cartshipping_method">cart.shipping_method</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cartdiscount_code">cart.discount_code</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cartdiscount_code_value">cart.discount_code_value</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cartdifferent_billing_address">cart.different_billing_address</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cartitem_count">cart.item_count</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#carttotal_quantity">cart.total_quantity</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cartline_items">cart.line_items</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cartitems_price_without_discount">cart.items_price_without_discount</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cartitems_price">cart.items_price</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cartshipping_price">cart.shipping_price</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#carttotal_price">cart.total_price</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#carttotal_weight">cart.total_weight</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -283,12 +335,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Machine Learning</a>
-        
-            <ul>
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../machine-learning/">Machine Learning</a>
         
     </li>
 
@@ -333,11 +381,11 @@
     
       
         
-          <li>Liquid &raquo;</li>
+          <li>Generic &raquo;</li>
         
       
     
-    <li>Machine Learning</li>
+    <li>Cart</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -347,7 +395,39 @@
           <div role="main">
             <div class="section">
               
-                
+                <h1 id="cartcustomer_notes">cart.customer_notes</h1>
+<p>Returns the notes the customer left for the merchant.</p>
+<h1 id="cartshipping_address">cart.shipping_address</h1>
+<p>Returns the <a href="../address/">shipping address</a> of the current cart.</p>
+<h1 id="cartbilling_address">cart.billing_address</h1>
+<p>Returns the <a href="../address/">billing address</a> of the current cart.</p>
+<h1 id="cartshipping_methods">cart.shipping_methods</h1>
+<p>Returns a collection of <a href="../shipping-method/">shipping methods</a> available for the current cart.</p>
+<h1 id="cartshipping_method">cart.shipping_method</h1>
+<p>Returns the selected <a href="../shipping-method/">shipping method</a> of the current cart.</p>
+<h1 id="cartdiscount_code">cart.discount_code</h1>
+<p>Returns the <a href="../discount-code/">discount code</a> associated to the current cart.</p>
+<p>Returns nil if no discount code is associated.</p>
+<h1 id="cartdiscount_code_value">cart.discount_code_value</h1>
+<p>Returns the monetary value of the discount code, always &lt;= 0.</p>
+<h1 id="cartdifferent_billing_address">cart.different_billing_address</h1>
+<p>Wheter the <a href="../address/">billing address</a> is different from the shipping address for the current cart.</p>
+<h1 id="cartitem_count">cart.item_count</h1>
+<p>The number of the <a href="../line-item/">line items</a> present in the current cart.</p>
+<h1 id="carttotal_quantity">cart.total_quantity</h1>
+<p>The total number of products in the current cart.</p>
+<h1 id="cartline_items">cart.line_items</h1>
+<p>Returns a collection of <a href="../line-item/">line items</a> for the current cart.</p>
+<h1 id="cartitems_price_without_discount">cart.items_price_without_discount</h1>
+<p>Returns the value of the products without applying any <a href="../discount-code/">discount code</a></p>
+<h1 id="cartitems_price">cart.items_price</h1>
+<p>Returns the value of the products minus the value of the discount code when applicable.</p>
+<h1 id="cartshipping_price">cart.shipping_price</h1>
+<p>Returns the price of the selected shipping method.</p>
+<h1 id="carttotal_price">cart.total_price</h1>
+<p>Returns the grand total of the current cart.</p>
+<h1 id="carttotal_weight">cart.total_weight</h1>
+<p>Returns the total weight of the cart in Kilograms.</p>
               
             </div>
           </div>
@@ -355,10 +435,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../endpoints/cart/" class="btn btn-neutral float-right" title="Cart"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../country/" class="btn btn-neutral float-right" title="Country"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../variant/" class="btn btn-neutral" title="Variant"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../address/" class="btn btn-neutral" title="Address"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -386,10 +466,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../variant/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../address/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../endpoints/cart/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../country/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
