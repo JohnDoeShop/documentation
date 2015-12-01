@@ -56,8 +56,328 @@
             "title": "What is false?"
         }, 
         {
+            "location": "/liquid/articles/", 
+            "text": "", 
+            "title": "Articles"
+        }, 
+        {
+            "location": "/liquid/categories/", 
+            "text": "", 
+            "title": "Categories"
+        }, 
+        {
+            "location": "/liquid/countries/", 
+            "text": "", 
+            "title": "Countries"
+        }, 
+        {
+            "location": "/liquid/currencies/", 
+            "text": "currency.symbol\n\n\nReturns the \ncurrency symbol\n.\n\n\nExample\n\n\n{{ currency.symbol }}\n\n!-- Outputs: $ --\n\n\n\n\n\ncurrency.id\n\n\nReturns the currency internal Id.\n\n\ncurrency.code\n\n\nExample\n\n\n{{ currency.code }}\n\n!-- Outputs: USD --\n\n\n\n\n\nReturns a three-letters \nISO 4217\n currency code.\n\n\ncurrency.name\n\n\nReturns the full currency name.\n\n\nExample\n\n\n{{ currency.name }}\n\n!-- Outputs: Euro --", 
+            "title": "Currencies"
+        }, 
+        {
+            "location": "/liquid/currencies/#currencysymbol", 
+            "text": "Returns the  currency symbol .  Example  {{ currency.symbol }} !-- Outputs: $ --", 
+            "title": "currency.symbol"
+        }, 
+        {
+            "location": "/liquid/currencies/#currencyid", 
+            "text": "Returns the currency internal Id.", 
+            "title": "currency.id"
+        }, 
+        {
+            "location": "/liquid/currencies/#currencycode", 
+            "text": "Example  {{ currency.code }} !-- Outputs: USD --   Returns a three-letters  ISO 4217  currency code.", 
+            "title": "currency.code"
+        }, 
+        {
+            "location": "/liquid/currencies/#currencyname", 
+            "text": "Returns the full currency name.  Example  {{ currency.name }} !-- Outputs: Euro --", 
+            "title": "currency.name"
+        }, 
+        {
+            "location": "/liquid/link-lists/", 
+            "text": "", 
+            "title": "Link Lists"
+        }, 
+        {
+            "location": "/liquid/pages/", 
+            "text": "", 
+            "title": "Pages"
+        }, 
+        {
+            "location": "/liquid/address/", 
+            "text": "address.first_name\n\n\naddress.last_name\n\n\naddress.name\n\n\naddress.phone\n\n\naddress.company\n\n\naddress.street1\n\n\naddress.street2\n\n\naddress.street\n\n\naddress.city_name\n\n\naddress.postal_code\n\n\naddress.state_or_province\n\n\naddress.country\n\n\nReturns the \ncountry", 
+            "title": "Address"
+        }, 
+        {
+            "location": "/liquid/address/#addressfirst_name", 
+            "text": "", 
+            "title": "address.first_name"
+        }, 
+        {
+            "location": "/liquid/address/#addresslast_name", 
+            "text": "", 
+            "title": "address.last_name"
+        }, 
+        {
+            "location": "/liquid/address/#addressname", 
+            "text": "", 
+            "title": "address.name"
+        }, 
+        {
+            "location": "/liquid/address/#addressphone", 
+            "text": "", 
+            "title": "address.phone"
+        }, 
+        {
+            "location": "/liquid/address/#addresscompany", 
+            "text": "", 
+            "title": "address.company"
+        }, 
+        {
+            "location": "/liquid/address/#addressstreet1", 
+            "text": "", 
+            "title": "address.street1"
+        }, 
+        {
+            "location": "/liquid/address/#addressstreet2", 
+            "text": "", 
+            "title": "address.street2"
+        }, 
+        {
+            "location": "/liquid/address/#addressstreet", 
+            "text": "", 
+            "title": "address.street"
+        }, 
+        {
+            "location": "/liquid/address/#addresscity_name", 
+            "text": "", 
+            "title": "address.city_name"
+        }, 
+        {
+            "location": "/liquid/address/#addresspostal_code", 
+            "text": "", 
+            "title": "address.postal_code"
+        }, 
+        {
+            "location": "/liquid/address/#addressstate_or_province", 
+            "text": "", 
+            "title": "address.state_or_province"
+        }, 
+        {
+            "location": "/liquid/address/#addresscountry", 
+            "text": "Returns the  country", 
+            "title": "address.country"
+        }, 
+        {
+            "location": "/liquid/cart/", 
+            "text": "cart.customer_notes\n\n\nReturns the notes the customer left for the merchant.\n\n\ncart.shipping_address\n\n\nReturns the \nshipping address\n of the current cart.\n\n\ncart.billing_address\n\n\nReturns the \nbilling address\n of the current cart.\n\n\ncart.shipping_methods\n\n\nReturns a collection of \nshipping methods\n available for the current cart.\n\n\ncart.shipping_method\n\n\nReturns the selected \nshipping method\n of the current cart.\n\n\ncart.discount_code\n\n\nReturns the \ndiscount code\n associated to the current cart.\n\n\nReturns nil if no discount code is associated.\n\n\ncart.discount_code_value\n\n\nReturns the monetary value of the discount code, always \n= 0.\n\n\ncart.different_billing_address\n\n\nWheter the \nbilling address\n is different from the shipping address for the current cart.\n\n\ncart.item_count\n\n\nThe number of the \nline items\n present in the current cart.\n\n\ncart.total_quantity\n\n\nThe total number of products in the current cart.\n\n\ncart.line_items\n\n\nReturns a collection of \nline items\n for the current cart.\n\n\ncart.items_price_without_discount\n\n\nReturns the value of the products without applying any \ndiscount code\n\n\ncart.items_price\n\n\nReturns the value of the products minus the value of the discount code when applicable.\n\n\ncart.shipping_price\n\n\nReturns the price of the selected shipping method.\n\n\ncart.total_price\n\n\nReturns the grand total of the current cart.\n\n\ncart.total_weight\n\n\nReturns the total weight of the cart in Kilograms.", 
+            "title": "Cart"
+        }, 
+        {
+            "location": "/liquid/cart/#cartcustomer_notes", 
+            "text": "Returns the notes the customer left for the merchant.", 
+            "title": "cart.customer_notes"
+        }, 
+        {
+            "location": "/liquid/cart/#cartshipping_address", 
+            "text": "Returns the  shipping address  of the current cart.", 
+            "title": "cart.shipping_address"
+        }, 
+        {
+            "location": "/liquid/cart/#cartbilling_address", 
+            "text": "Returns the  billing address  of the current cart.", 
+            "title": "cart.billing_address"
+        }, 
+        {
+            "location": "/liquid/cart/#cartshipping_methods", 
+            "text": "Returns a collection of  shipping methods  available for the current cart.", 
+            "title": "cart.shipping_methods"
+        }, 
+        {
+            "location": "/liquid/cart/#cartshipping_method", 
+            "text": "Returns the selected  shipping method  of the current cart.", 
+            "title": "cart.shipping_method"
+        }, 
+        {
+            "location": "/liquid/cart/#cartdiscount_code", 
+            "text": "Returns the  discount code  associated to the current cart.  Returns nil if no discount code is associated.", 
+            "title": "cart.discount_code"
+        }, 
+        {
+            "location": "/liquid/cart/#cartdiscount_code_value", 
+            "text": "Returns the monetary value of the discount code, always  = 0.", 
+            "title": "cart.discount_code_value"
+        }, 
+        {
+            "location": "/liquid/cart/#cartdifferent_billing_address", 
+            "text": "Wheter the  billing address  is different from the shipping address for the current cart.", 
+            "title": "cart.different_billing_address"
+        }, 
+        {
+            "location": "/liquid/cart/#cartitem_count", 
+            "text": "The number of the  line items  present in the current cart.", 
+            "title": "cart.item_count"
+        }, 
+        {
+            "location": "/liquid/cart/#carttotal_quantity", 
+            "text": "The total number of products in the current cart.", 
+            "title": "cart.total_quantity"
+        }, 
+        {
+            "location": "/liquid/cart/#cartline_items", 
+            "text": "Returns a collection of  line items  for the current cart.", 
+            "title": "cart.line_items"
+        }, 
+        {
+            "location": "/liquid/cart/#cartitems_price_without_discount", 
+            "text": "Returns the value of the products without applying any  discount code", 
+            "title": "cart.items_price_without_discount"
+        }, 
+        {
+            "location": "/liquid/cart/#cartitems_price", 
+            "text": "Returns the value of the products minus the value of the discount code when applicable.", 
+            "title": "cart.items_price"
+        }, 
+        {
+            "location": "/liquid/cart/#cartshipping_price", 
+            "text": "Returns the price of the selected shipping method.", 
+            "title": "cart.shipping_price"
+        }, 
+        {
+            "location": "/liquid/cart/#carttotal_price", 
+            "text": "Returns the grand total of the current cart.", 
+            "title": "cart.total_price"
+        }, 
+        {
+            "location": "/liquid/cart/#carttotal_weight", 
+            "text": "Returns the total weight of the cart in Kilograms.", 
+            "title": "cart.total_weight"
+        }, 
+        {
+            "location": "/liquid/country/", 
+            "text": "country.name\n\n\nThe full name of the country.\n\n\ncountry.id\n\n\nThe internal Id of the country.\n\n\ncountry.code\n\n\nReturns a two-letter \nISO 3166\n code of the country.\n\n\ncountry.continent\n\n\nReturns the two letter code of the continent.\n\n\nCan be either:\n\n\n\n\n\n\n\n\nCode\n\n\nContinent\n\n\n\n\n\n\n\n\n\n\nAN\n\n\nAntartica\n\n\n\n\n\n\nOC\n\n\nOceania\n\n\n\n\n\n\nAS\n\n\nAsia\n\n\n\n\n\n\nNA\n\n\nNorth America\n\n\n\n\n\n\nSA\n\n\nSouth America\n\n\n\n\n\n\nEU\n\n\nEurope", 
+            "title": "Country"
+        }, 
+        {
+            "location": "/liquid/country/#countryname", 
+            "text": "The full name of the country.", 
+            "title": "country.name"
+        }, 
+        {
+            "location": "/liquid/country/#countryid", 
+            "text": "The internal Id of the country.", 
+            "title": "country.id"
+        }, 
+        {
+            "location": "/liquid/country/#countrycode", 
+            "text": "Returns a two-letter  ISO 3166  code of the country.", 
+            "title": "country.code"
+        }, 
+        {
+            "location": "/liquid/country/#countrycontinent", 
+            "text": "Returns the two letter code of the continent.  Can be either:     Code  Continent      AN  Antartica    OC  Oceania    AS  Asia    NA  North America    SA  South America    EU  Europe", 
+            "title": "country.continent"
+        }, 
+        {
+            "location": "/liquid/currency/", 
+            "text": "", 
+            "title": "Currency"
+        }, 
+        {
+            "location": "/liquid/customer/", 
+            "text": "customer.billing_address\n\n\nReturns the \nbilling address\n of the current customer.\n\n\ncustomer.shipping_address\n\n\nReturns the \nshipping address\n of the current customer.\n\n\ncustomer.country\n\n\nReturns the \ncountry\n of the current customer.\n\n\ncustomer.email\n\n\nReturns the email of the current customer.\n\n\ncustomer.currency\n\n\nReturns the \ncurrency\n of the current customer.\n\n\ncustomer.language\n\n\nReturns the language of the current customer.\n\n\ncustomer.accepted_cookies\n\n\nReturns wheter or not the current customer accepted the cookie policy.\n\n\ncustomer.id\n\n\nReturns the id of the current customer.\n\n\ncustomer.recommended_products\n\n\nRefer to \nMachine Learning\n.\n\n\ncustomer.may_also_like\n\n\nRefer to \nMachine Learning\n.\n\n\ncustomer.recently_viewed\n\n\nRefer to \nMachine Learning\n.", 
+            "title": "Customer"
+        }, 
+        {
+            "location": "/liquid/customer/#customerbilling_address", 
+            "text": "Returns the  billing address  of the current customer.", 
+            "title": "customer.billing_address"
+        }, 
+        {
+            "location": "/liquid/customer/#customershipping_address", 
+            "text": "Returns the  shipping address  of the current customer.", 
+            "title": "customer.shipping_address"
+        }, 
+        {
+            "location": "/liquid/customer/#customercountry", 
+            "text": "Returns the  country  of the current customer.", 
+            "title": "customer.country"
+        }, 
+        {
+            "location": "/liquid/customer/#customeremail", 
+            "text": "Returns the email of the current customer.", 
+            "title": "customer.email"
+        }, 
+        {
+            "location": "/liquid/customer/#customercurrency", 
+            "text": "Returns the  currency  of the current customer.", 
+            "title": "customer.currency"
+        }, 
+        {
+            "location": "/liquid/customer/#customerlanguage", 
+            "text": "Returns the language of the current customer.", 
+            "title": "customer.language"
+        }, 
+        {
+            "location": "/liquid/customer/#customeraccepted_cookies", 
+            "text": "Returns wheter or not the current customer accepted the cookie policy.", 
+            "title": "customer.accepted_cookies"
+        }, 
+        {
+            "location": "/liquid/customer/#customerid", 
+            "text": "Returns the id of the current customer.", 
+            "title": "customer.id"
+        }, 
+        {
+            "location": "/liquid/customer/#customerrecommended_products", 
+            "text": "Refer to  Machine Learning .", 
+            "title": "customer.recommended_products"
+        }, 
+        {
+            "location": "/liquid/customer/#customermay_also_like", 
+            "text": "Refer to  Machine Learning .", 
+            "title": "customer.may_also_like"
+        }, 
+        {
+            "location": "/liquid/customer/#customerrecently_viewed", 
+            "text": "Refer to  Machine Learning .", 
+            "title": "customer.recently_viewed"
+        }, 
+        {
+            "location": "/liquid/discount-code/", 
+            "text": "", 
+            "title": "Discount Code"
+        }, 
+        {
+            "location": "/liquid/line-item/", 
+            "text": "", 
+            "title": "Line Item"
+        }, 
+        {
+            "location": "/liquid/link/", 
+            "text": "", 
+            "title": "Link"
+        }, 
+        {
+            "location": "/liquid/link-list/", 
+            "text": "", 
+            "title": "Link List"
+        }, 
+        {
+            "location": "/liquid/user/", 
+            "text": "", 
+            "title": "User"
+        }, 
+        {
+            "location": "/liquid/shipping-method/", 
+            "text": "", 
+            "title": "Shipping Method"
+        }, 
+        {
             "location": "/liquid/shop/", 
-            "text": "shop.name\n\n\nReturns the shop's name.\n\n\nshop.decription\n\n\nReturn the shop's description.\n\n\nshop.currency\n\n\nReturns the shop's default three-letter ISO 4217 currency code (ex: USD).", 
+            "text": "shop.name\n\n\nReturns the shop's name.\n\n\nshop.decription\n\n\nReturn the shop's description.\n\n\nshop.currency_code\n\n\nReturns the shop's default three-letter \nISO 4217\n currency code (ex: USD).\n\n\nshop.currency_symbol\n\n\nReturns the shop's currency \nISO 4217\n symbol (ex: $).\n\n\nshop.currency_name\n\n\nReturns the shop's currency name (ex: \"American Dollars\").\n\n\nshop.vat_id\n\n\nReturns the vat id of the current shop.\n\n\nshop.domain\n\n\nReturns the primary domain of the shop.\n\n\nshop.permanent_domain\n\n\nReturns a \nshop-name\n.\nagency-domain\n.com\n URL of the current shop.\n\n\nshop.url\n\n\nReturns the full url for the current shop\n\n\nExample\n\n\n{{ shop.url }}\n\n!-- Outputs: http://www.my-shop.com --\n\n\n\n\n\nIf the agency domain is not set a \nshop-name\n.johndoeshop.com\n domain is returned.\n\n\nshop.address\n\n\nReturns the \naddress\n of the shop\n\n\nshop.latest_products\n\n\nRefer to \nMachine Learning\n.\n\n\nshop.best_sellers\n\n\nRefer to \nMachine Learning\n.\n\n\nshop.trending_products\n\n\nRefer to \nMachine Learning\n.\n\n\nshop.social_links\n\n\nReturns a list of the shop's social networks pages.\n\n\nExample\n\n\n{{ shop.social_links.facebook }}\n\n!-- Outputs: https://www.facebook.com/johndoeshop --\n\n\n\n\n\nshop.categories_count\n\n\nReturns the number of the root categories of the current shop.\n\n\nshop.deep_categories_count\n\n\nReturns the number of all the categories of the current shop.\n\n\nshop.languages\n\n\nReturns a list of the available languages for the current shop.\n\n\nEach language has the following properties:\n\n\n\n\n\n\n\n\nProperty\n\n\nSample value\n\n\n\n\n\n\n\n\n\n\nname\n\n\nItalian\n\n\n\n\n\n\ncode\n\n\nit\n\n\n\n\n\n\nurl\n\n\n/set_language/it\n\n\n\n\n\n\n\n\nshop.products_count\n\n\nReturns the number of all the products for the current shop.\n\n\nshop.ship_to_countries\n\n\nReturns a collection of \ncountries\n that have at least one shipping method available. \n\n\nshop.enabled_payment_types\n\n\nReturns a list of the enabled payment processors.\n\n\nExample\n\n\n{{ shop.enabled_payment_types }}\n\n!-- Outputs: ['paypal', 'braintree'] --\n\n\n\n\n\nshop.locale\n\n\nReturns the current selected locale.\n\n\nAlias for \ncustomer.locale\n\n\nshop.description\n\n\nReturns the current shop's description.\n\n\nshop.name\n\n\nReturns the current shop's name.\n\n\nshop.agency_name\n\n\nReturns the name of the shop's agency.\n\n\nshop.agency_url\n\n\nReturn the url of the shop's agency.", 
             "title": "Shop"
         }, 
         {
@@ -71,9 +391,124 @@
             "title": "shop.decription"
         }, 
         {
-            "location": "/liquid/shop/#shopcurrency", 
-            "text": "Returns the shop's default three-letter ISO 4217 currency code (ex: USD).", 
-            "title": "shop.currency"
+            "location": "/liquid/shop/#shopcurrency_code", 
+            "text": "Returns the shop's default three-letter  ISO 4217  currency code (ex: USD).", 
+            "title": "shop.currency_code"
+        }, 
+        {
+            "location": "/liquid/shop/#shopcurrency_symbol", 
+            "text": "Returns the shop's currency  ISO 4217  symbol (ex: $).", 
+            "title": "shop.currency_symbol"
+        }, 
+        {
+            "location": "/liquid/shop/#shopcurrency_name", 
+            "text": "Returns the shop's currency name (ex: \"American Dollars\").", 
+            "title": "shop.currency_name"
+        }, 
+        {
+            "location": "/liquid/shop/#shopvat_id", 
+            "text": "Returns the vat id of the current shop.", 
+            "title": "shop.vat_id"
+        }, 
+        {
+            "location": "/liquid/shop/#shopdomain", 
+            "text": "Returns the primary domain of the shop.", 
+            "title": "shop.domain"
+        }, 
+        {
+            "location": "/liquid/shop/#shoppermanent_domain", 
+            "text": "Returns a  shop-name . agency-domain .com  URL of the current shop.", 
+            "title": "shop.permanent_domain"
+        }, 
+        {
+            "location": "/liquid/shop/#shopurl", 
+            "text": "Returns the full url for the current shop  Example  {{ shop.url }} !-- Outputs: http://www.my-shop.com --   If the agency domain is not set a  shop-name .johndoeshop.com  domain is returned.", 
+            "title": "shop.url"
+        }, 
+        {
+            "location": "/liquid/shop/#shopaddress", 
+            "text": "Returns the  address  of the shop", 
+            "title": "shop.address"
+        }, 
+        {
+            "location": "/liquid/shop/#shoplatest_products", 
+            "text": "Refer to  Machine Learning .", 
+            "title": "shop.latest_products"
+        }, 
+        {
+            "location": "/liquid/shop/#shopbest_sellers", 
+            "text": "Refer to  Machine Learning .", 
+            "title": "shop.best_sellers"
+        }, 
+        {
+            "location": "/liquid/shop/#shoptrending_products", 
+            "text": "Refer to  Machine Learning .", 
+            "title": "shop.trending_products"
+        }, 
+        {
+            "location": "/liquid/shop/#shopsocial_links", 
+            "text": "Returns a list of the shop's social networks pages.  Example  {{ shop.social_links.facebook }} !-- Outputs: https://www.facebook.com/johndoeshop --", 
+            "title": "shop.social_links"
+        }, 
+        {
+            "location": "/liquid/shop/#shopcategories_count", 
+            "text": "Returns the number of the root categories of the current shop.", 
+            "title": "shop.categories_count"
+        }, 
+        {
+            "location": "/liquid/shop/#shopdeep_categories_count", 
+            "text": "Returns the number of all the categories of the current shop.", 
+            "title": "shop.deep_categories_count"
+        }, 
+        {
+            "location": "/liquid/shop/#shoplanguages", 
+            "text": "Returns a list of the available languages for the current shop.  Each language has the following properties:     Property  Sample value      name  Italian    code  it    url  /set_language/it", 
+            "title": "shop.languages"
+        }, 
+        {
+            "location": "/liquid/shop/#shopproducts_count", 
+            "text": "Returns the number of all the products for the current shop.", 
+            "title": "shop.products_count"
+        }, 
+        {
+            "location": "/liquid/shop/#shopship_to_countries", 
+            "text": "Returns a collection of  countries  that have at least one shipping method available.", 
+            "title": "shop.ship_to_countries"
+        }, 
+        {
+            "location": "/liquid/shop/#shopenabled_payment_types", 
+            "text": "Returns a list of the enabled payment processors.  Example  {{ shop.enabled_payment_types }} !-- Outputs: ['paypal', 'braintree'] --", 
+            "title": "shop.enabled_payment_types"
+        }, 
+        {
+            "location": "/liquid/shop/#shoplocale", 
+            "text": "Returns the current selected locale.  Alias for  customer.locale", 
+            "title": "shop.locale"
+        }, 
+        {
+            "location": "/liquid/shop/#shopdescription", 
+            "text": "Returns the current shop's description.", 
+            "title": "shop.description"
+        }, 
+        {
+            "location": "/liquid/shop/#shopname_1", 
+            "text": "Returns the current shop's name.", 
+            "title": "shop.name"
+        }, 
+        {
+            "location": "/liquid/shop/#shopagency_name", 
+            "text": "Returns the name of the shop's agency.", 
+            "title": "shop.agency_name"
+        }, 
+        {
+            "location": "/liquid/shop/#shopagency_url", 
+            "text": "Return the url of the shop's agency.", 
+            "title": "shop.agency_url"
+        }, 
+        {
+            "location": "/liquid/article/", 
+            "text": "", 
+            "title": "Article"
         }, 
         {
             "location": "/liquid/category/", 
@@ -99,6 +534,36 @@
             "location": "/liquid/category/#categoryhandle", 
             "text": "", 
             "title": "category.handle"
+        }, 
+        {
+            "location": "/liquid/fulfillment/", 
+            "text": "", 
+            "title": "Fulfillment"
+        }, 
+        {
+            "location": "/liquid/order/", 
+            "text": "", 
+            "title": "Order"
+        }, 
+        {
+            "location": "/liquid/page/", 
+            "text": "", 
+            "title": "Page"
+        }, 
+        {
+            "location": "/liquid/product/", 
+            "text": "", 
+            "title": "Product"
+        }, 
+        {
+            "location": "/liquid/refund/", 
+            "text": "", 
+            "title": "Refund"
+        }, 
+        {
+            "location": "/liquid/variant/", 
+            "text": "", 
+            "title": "Variant"
         }, 
         {
             "location": "/liquid/machine-learning/", 
