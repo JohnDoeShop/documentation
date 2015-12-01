@@ -32,9 +32,29 @@
     
 
     
+    <url>
+     <loc>None/checkout/</loc>
+     <lastmod>2015-12-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
         
     <url>
      <loc>None/endpoints/cart/</loc>
+     <lastmod>2015-12-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/endpoints/category/</loc>
+     <lastmod>2015-12-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/endpoints/product/</loc>
      <lastmod>2015-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url>

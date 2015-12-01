@@ -245,6 +245,63 @@
                 <li class="toctree-l3"><a href="#categoryhandle">category.handle</a></li>
                 
             
+                <li class="toctree-l3"><a href="#categoryid">category.id</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categorydefault_sort_by">category.default_sort_by</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categorycurrent_sort_by">category.current_sort_by</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categoryproducts_price_min">category.products_price_min</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categoryproducts_price_max">category.products_price_max</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categorycurrent_price_min">category.current_price_min</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categorycurrent_price_max">category.current_price_max</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categoryall_vendors">category.all_vendors</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categorycurrent_vendor">category.current_vendor</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categorytags">category.tags</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categorycurrent_tags">category.current_tags</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categoryproducts">category.products</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categoryproducts_count">category.products_count</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categorydepth">category.depth</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categorydeep_products_count">category.deep_products_count</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categoryimage">category.image</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categorydefault_image">category.default_image</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categoryfeatured_image">category.featured_image</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#categoryurl">category.url</a></li>
+                
+            
             </ul>
         
     </li>
@@ -309,6 +366,13 @@
 <li>
           
             <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../checkout/">Checkout Flow</a>
+        
+    </li>
+<li>
+          
+            <li>
     <ul class="subnav">
     <li><span>JSON Endpoints</span></li>
 
@@ -316,6 +380,20 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../../endpoints/cart/">Cart</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../endpoints/category/">Category</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../endpoints/product/">Product</a>
         
     </li>
 
@@ -360,9 +438,57 @@
             <div class="section">
               
                 <h1 id="categoryname">category.name</h1>
+<p>Returns the name of the category.</p>
 <h1 id="categorytitle">category.title</h1>
+<p>An alias for <a href="./#category.name">name</a></p>
 <h1 id="categoryfriendly_name">category.friendly_name</h1>
+<p>Returns the friendly name of the category.</p>
 <h1 id="categoryhandle">category.handle</h1>
+<p>An alias for <a href="./#category.friendly_name">friendly_name</a></p>
+<h1 id="categoryid">category.id</h1>
+<p>Returns the internal Id.</p>
+<h1 id="categorydefault_sort_by">category.default_sort_by</h1>
+<p>Returns the default sorting for the category.</p>
+<h1 id="categorycurrent_sort_by">category.current_sort_by</h1>
+<p>Returns the customer selected sorting for the category.
+This can be set using the <code>sort_by</code> <em>GET</em> parameter.</p>
+<h1 id="categoryproducts_price_min">category.products_price_min</h1>
+<p>Returns the price of the cheapest product in the category.</p>
+<h1 id="categoryproducts_price_max">category.products_price_max</h1>
+<p>Returns the price of the most expensive product in the category.</p>
+<h1 id="categorycurrent_price_min">category.current_price_min</h1>
+<p>Returns the current <code>filter by price</code> minimum price.<br />
+This can be set using the <code>price_min</code> <em>GET</em> parameter.</p>
+<h1 id="categorycurrent_price_max">category.current_price_max</h1>
+<p>Returns the current <code>filter by price</code> maximum price.<br />
+This can be set using the <code>price_max</code> <em>GET</em> parameter.</p>
+<h1 id="categoryall_vendors">category.all_vendors</h1>
+<p>Returns a list containing the name of all the vendor of the products in this category.</p>
+<h1 id="categorycurrent_vendor">category.current_vendor</h1>
+<p>Returns the name of the current <code>filter by vendor</code>.<br />
+This can be set using the <code>vendor</code> <em>GET</em> parameter. </p>
+<h1 id="categorytags">category.tags</h1>
+<p>Returns a list of all the tags of the products in the current category.</p>
+<h1 id="categorycurrent_tags">category.current_tags</h1>
+<p>Returns the current <code>filter by tag</code>.<br />
+This can be set passing a JSON array to the <code>tags</code> <em>GET</em> parameter.</p>
+<h1 id="categoryproducts">category.products</h1>
+<p>Returns a collection of <a href="../product/">products</a></p>
+<p>The collection is filter aware.</p>
+<h1 id="categoryproducts_count">category.products_count</h1>
+<p>Returns the number of products in the current category, without applying any filter.</p>
+<h1 id="categorydepth">category.depth</h1>
+<p>The depth of the current category.</p>
+<h1 id="categorydeep_products_count">category.deep_products_count</h1>
+<p>The number of the products in the current category and all its children categories.</p>
+<h1 id="categoryimage">category.image</h1>
+<p>Returns the image of the category.</p>
+<h1 id="categorydefault_image">category.default_image</h1>
+<p>An alias for <a href="./#category.image">image</a>.</p>
+<h1 id="categoryfeatured_image">category.featured_image</h1>
+<p>An alias for <a href="./#category.image">image</a>.</p>
+<h1 id="categoryurl">category.url</h1>
+<p>Returns the category url.</p>
               
             </div>
           </div>
