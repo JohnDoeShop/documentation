@@ -5,10 +5,37 @@ pages:
   - Liquid:
     - 'Introduction': 'liquid/introduction.md'
     - Objects:
-      - 'Global Scope':
-        - 'Shop': 'liquid/shop.md'
-      - 'Local Scope':
-        - 'Category': 'liquid/category.md'
+      - Collections:
+        - Articles: 'liquid/articles.md'
+        - Categories: 'liquid/categories.md'
+        - Countries: 'liquid/countries.md'
+        - Currencies: 'liquid/currencies.md'
+        - 'Link Lists': 'liquid/link-lists.md'
+        - Pages: 'liquid/pages.md'
+
+      - 'Generic':
+        - Address: 'liquid/address.md'
+        - Cart: 'liquid/cart.md'
+        - Country: 'liquid/country.md'
+        - Currency: 'liquid/currency.md'
+        - Customer: 'liquid/customer.md'
+        - 'Discount Code': 'liquid/discount-code.md'
+        - 'Line Item': 'liquid/line-item.md'
+        - Link: 'liquid/link.md'
+        - 'Link List': 'liquid/link-list.md'
+        - User: 'liquid/user.md'
+        - 'Shipping Method': 'liquid/shipping-method.md'
+        - Shop: 'liquid/shop.md'
+
+      - 'Template specific':
+        - Article: 'liquid/article.md'
+        - Category: 'liquid/category.md'
+        - Fulfillment: 'liquid/fulfillment.md'
+        - Order: 'liquid/order.md'
+        - Page: 'liquid/page.md'
+        - Product: 'liquid/product.md'
+        - Refund: 'liquid/refund.md'
+        - Variant: 'liquid/variant.md'
     - 'Machine Learning': 'liquid/machine-learning.md'
   - 'JSON Endpoints':
     - 'Cart' : 'endpoints/cart.md'
