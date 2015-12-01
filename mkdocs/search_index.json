@@ -2,12 +2,12 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to John Doe Shop\n\n\nThis is the official John Doe Shop documentation for web agencies and stores using our platform.", 
+            "text": "Welcome to John Doe Shop\n\n\nThis is the official John Doe Shop documentation for web agencies and stores using our platform.\n\n\nIf you want to make some changes send a pull request to \nthis repository\n.", 
             "title": "Home"
         }, 
         {
             "location": "/#welcome-to-john-doe-shop", 
-            "text": "This is the official John Doe Shop documentation for web agencies and stores using our platform.", 
+            "text": "This is the official John Doe Shop documentation for web agencies and stores using our platform.  If you want to make some changes send a pull request to  this repository .", 
             "title": "Welcome to John Doe Shop"
         }, 
         {
