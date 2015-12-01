@@ -183,6 +183,24 @@
         
             <ul>
             
+                <li class="toctree-l3"><a href="#linkactive">link.active</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#linkobject">link.object</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#linkname">link.name</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#linktitle">link.title</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#linktype">link.type</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#linkurl">link.url</a></li>
+                
+            
             </ul>
         
     </li>
@@ -297,6 +315,13 @@
 <li>
           
             <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../checkout/">Checkout Flow</a>
+        
+    </li>
+<li>
+          
+            <li>
     <ul class="subnav">
     <li><span>JSON Endpoints</span></li>
 
@@ -304,6 +329,20 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../../endpoints/cart/">Cart</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../endpoints/category/">Category</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../endpoints/product/">Product</a>
         
     </li>
 
@@ -347,7 +386,68 @@
           <div role="main">
             <div class="section">
               
-                
+                <h1 id="linkactive">link.active</h1>
+<p>Returns true if the current page is the one pointed by the link.</p>
+<h1 id="linkobject">link.object</h1>
+<p>Returns the object pointed by this link.</p>
+<p>It is only applicable for the following types:</p>
+<ul>
+<li><code>page_link</code></li>
+<li><code>category_link</code></li>
+<li><code>product_link</code></li>
+<li><code>article_link</code></li>
+</ul>
+<h1 id="linkname">link.name</h1>
+<p>Returns the name of the link.</p>
+<h1 id="linktitle">link.title</h1>
+<p>An alias for <a href="./#link.name">name</a>.</p>
+<h1 id="linktype">link.type</h1>
+<p>Returns the type of the link.</p>
+<p>Possible values:</p>
+<table>
+<thead>
+<tr>
+<th>Return value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>homepage_link</td>
+<td>The link will point to <code>/</code></td>
+</tr>
+<tr>
+<td>category_link</td>
+<td>The link points to a category</td>
+</tr>
+<tr>
+<td>product_link</td>
+<td>The link points to a product</td>
+</tr>
+<tr>
+<td>page_link</td>
+<td>The link points to a page</td>
+</tr>
+<tr>
+<td>blog_link</td>
+<td>The link points to blog</td>
+</tr>
+<tr>
+<td>social_link</td>
+<td>The link points to a social network page of the <a href="../shop/">shop</a></td>
+</tr>
+<tr>
+<td>article_link</td>
+<td>The link points to a blog post</td>
+</tr>
+<tr>
+<td>http_link</td>
+<td>The link points to a specific url</td>
+</tr>
+</tbody>
+</table>
+<h1 id="linkurl">link.url</h1>
+<p>Returns the url pointed by this link.</p>
               
             </div>
           </div>

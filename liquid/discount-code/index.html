@@ -169,6 +169,27 @@
         
             <ul>
             
+                <li class="toctree-l3"><a href="#discount_codecode">discount_code.code</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#discount_codeactive">discount_code.active</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#discount_codevalue">discount_code.value</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#discount_codeamount">discount_code.amount</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#discount_codesavings">discount_code.savings</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#discount_codetype">discount_code.type</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#discount_codefree_shipping">discount_code.free_shipping</a></li>
+                
+            
             </ul>
         
     </li>
@@ -297,6 +318,13 @@
 <li>
           
             <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../checkout/">Checkout Flow</a>
+        
+    </li>
+<li>
+          
+            <li>
     <ul class="subnav">
     <li><span>JSON Endpoints</span></li>
 
@@ -304,6 +332,20 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../../endpoints/cart/">Cart</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../endpoints/category/">Category</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../endpoints/product/">Product</a>
         
     </li>
 
@@ -347,7 +389,25 @@
           <div role="main">
             <div class="section">
               
-                
+                <h1 id="discount_codecode">discount_code.code</h1>
+<p>Returns the discount code alphanumeric value.</p>
+<h1 id="discount_codeactive">discount_code.active</h1>
+<p>Returns wheter or not the code is active and valid.</p>
+<h1 id="discount_codevalue">discount_code.value</h1>
+<p>Returns the discount code value.</p>
+<p>It represents a monetary amount if the type is <code>FixedAmountDiscount</code>.<br />
+It represents a percentage if the type is <code>PercentageDiscount</code>.</p>
+<h1 id="discount_codeamount">discount_code.amount</h1>
+<p>An alias for <a href="./#discount_code.amount">value</a></p>
+<h1 id="discount_codesavings">discount_code.savings</h1>
+<p>The same as <a href="./#discount_code.value">value</a>, but with a negative sign.</p>
+<h1 id="discount_codetype">discount_code.type</h1>
+<p>Returns the type of the discount code, can be either:</p>
+<p><code>PercentageDiscount</code>: The discount is proportional to the total amount of the cart.<br />
+<code>FixedAmountDiscount</code>: The discount has a fixed monetary value.</p>
+<h1 id="discount_codefree_shipping">discount_code.free_shipping</h1>
+<p>When this value is <code>true</code> the <a href="../cart/#cart.shipping_price">shipping costs</a> are 0.<br />
+This just means that this discount code entitles the customer to have its products shipped for free.</p>
               
             </div>
           </div>
