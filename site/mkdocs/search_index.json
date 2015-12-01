@@ -1076,9 +1076,89 @@
             "title": "Checkout Flow"
         }, 
         {
-            "location": "/endpoints/", 
+            "location": "/javascript/", 
             "text": "", 
+            "title": "Javascript Library"
+        }, 
+        {
+            "location": "/endpoints/", 
+            "text": "Cart\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/cart.json\n\n\n\n\nProduct\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/products/\nproduct_friendly_name\n.json\n\n\n\n\nCategory\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/categories/\ncategory_friendly_name\n.json\n\n\n\n\nCart full\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/cart/full.ajax\n\n\n\n\nCart mini\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/cart/mini.ajax\n\n\n\n\nCart additional\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/cart/additional.ajax\n\n\n\n\nSet currency\n\n\n\n\nMethod: \nPATCH\n\n\n\n\nSet language\n\n\n\n\nMethod: \nPATCH\n\n\n\n\nSet country\n\n\n\n\nMethod: \nPATCH\n\n\n\n\nAccept cookies\n\n\n\n\nMethod: \nPATCH\n\n\n\n\nAdd to cart\n\n\n\n\nMethod: \nPOST\n\n\n\n\nDelete from cart\n\n\n\n\nMethod: \nDELETE\n\n\n\n\nUpdate line item quantity\n\n\n\n\nMethod: \nPATCH\n\n\n\n\nIncrease line item quantity\n\n\n\n\nMethod: \nPATCH\n\n\n\n\nDecrease line item quantity\n\n\n\n\nMethod: \nPATCH", 
             "title": "JSON Endpoints"
+        }, 
+        {
+            "location": "/endpoints/#cart", 
+            "text": "Method:  GET  URL:  /cart.json", 
+            "title": "Cart"
+        }, 
+        {
+            "location": "/endpoints/#product", 
+            "text": "Method:  GET  URL:  /products/ product_friendly_name .json", 
+            "title": "Product"
+        }, 
+        {
+            "location": "/endpoints/#category", 
+            "text": "Method:  GET  URL:  /categories/ category_friendly_name .json", 
+            "title": "Category"
+        }, 
+        {
+            "location": "/endpoints/#cart-full", 
+            "text": "Method:  GET  URL:  /cart/full.ajax", 
+            "title": "Cart full"
+        }, 
+        {
+            "location": "/endpoints/#cart-mini", 
+            "text": "Method:  GET  URL:  /cart/mini.ajax", 
+            "title": "Cart mini"
+        }, 
+        {
+            "location": "/endpoints/#cart-additional", 
+            "text": "Method:  GET  URL:  /cart/additional.ajax", 
+            "title": "Cart additional"
+        }, 
+        {
+            "location": "/endpoints/#set-currency", 
+            "text": "Method:  PATCH", 
+            "title": "Set currency"
+        }, 
+        {
+            "location": "/endpoints/#set-language", 
+            "text": "Method:  PATCH", 
+            "title": "Set language"
+        }, 
+        {
+            "location": "/endpoints/#set-country", 
+            "text": "Method:  PATCH", 
+            "title": "Set country"
+        }, 
+        {
+            "location": "/endpoints/#accept-cookies", 
+            "text": "Method:  PATCH", 
+            "title": "Accept cookies"
+        }, 
+        {
+            "location": "/endpoints/#add-to-cart", 
+            "text": "Method:  POST", 
+            "title": "Add to cart"
+        }, 
+        {
+            "location": "/endpoints/#delete-from-cart", 
+            "text": "Method:  DELETE", 
+            "title": "Delete from cart"
+        }, 
+        {
+            "location": "/endpoints/#update-line-item-quantity", 
+            "text": "Method:  PATCH", 
+            "title": "Update line item quantity"
+        }, 
+        {
+            "location": "/endpoints/#increase-line-item-quantity", 
+            "text": "Method:  PATCH", 
+            "title": "Increase line item quantity"
+        }, 
+        {
+            "location": "/endpoints/#decrease-line-item-quantity", 
+            "text": "Method:  PATCH", 
+            "title": "Decrease line item quantity"
         }
     ]
 }

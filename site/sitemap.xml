@@ -43,6 +43,14 @@
 
     
     <url>
+     <loc>None/javascript/</loc>
+     <lastmod>2015-12-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>None/endpoints/</loc>
      <lastmod>2015-12-01</lastmod>
      <changefreq>daily</changefreq>
