@@ -282,27 +282,27 @@
         }, 
         {
             "location": "/liquid/currency/", 
-            "text": "currency.symbol\n\n\nReturns the currency's \nsymbol\n.\n\n\ncurrency.id\n\n\nReturns the currency's internal Id.\n\n\ncurrency.code\n\n\nReturns the currency's \nISO 4217\n code.\n\n\ncurrency.name\n\n\nReturns the currency's full human-readable name.", 
+            "text": "currency.symbol\n\n\nReturns the \ncurrency symbol\n.\n\n\nExample\n\n\n{{ currency.symbol }}\n\n!-- Outputs: $ --\n\n\n\n\n\ncurrency.id\n\n\nReturns the currency internal Id.\n\n\ncurrency.code\n\n\nExample\n\n\n{{ currency.code }}\n\n!-- Outputs: USD --\n\n\n\n\n\nReturns a three-letters \nISO 4217\n currency code.\n\n\ncurrency.name\n\n\nReturns the full currency name.\n\n\nExample\n\n\n{{ currency.name }}\n\n!-- Outputs: Euro --", 
             "title": "Currency"
         }, 
         {
             "location": "/liquid/currency/#currencysymbol", 
-            "text": "Returns the currency's  symbol .", 
+            "text": "Returns the  currency symbol .  Example  {{ currency.symbol }} !-- Outputs: $ --", 
             "title": "currency.symbol"
         }, 
         {
             "location": "/liquid/currency/#currencyid", 
-            "text": "Returns the currency's internal Id.", 
+            "text": "Returns the currency internal Id.", 
             "title": "currency.id"
         }, 
         {
             "location": "/liquid/currency/#currencycode", 
-            "text": "Returns the currency's  ISO 4217  code.", 
+            "text": "Example  {{ currency.code }} !-- Outputs: USD --   Returns a three-letters  ISO 4217  currency code.", 
             "title": "currency.code"
         }, 
         {
             "location": "/liquid/currency/#currencyname", 
-            "text": "Returns the currency's full human-readable name.", 
+            "text": "Returns the full currency name.  Example  {{ currency.name }} !-- Outputs: Euro --", 
             "title": "currency.name"
         }, 
         {
@@ -407,7 +407,7 @@
         }, 
         {
             "location": "/liquid/line-item/", 
-            "text": "line_item.product\n\n\nReturns the \nproduct\n associated with the line item.\n\nThis value is \nnil\n if the product has one or more \nvariants\n\n\nline_item.product_or_variant\n\n\nIf the \nproduct\n associated with the current item has a \nvariant\n, the selected variant is returned.\n\nOtherwise product itself is returned.\n\n\nline_item.default_image(size)\n\n\nReturns the default image for this line item.\n\n\nExample\n\n\n{{ line_item.default_image }}\n\n!-- Outputs the master image: //az763220.vo.msecnd.net/[...]/product-[...]-master --\n\n\n{{ line_item.default_image | img_url: 'medium' }}\n\n!-- Outputs the medium size image: //az763220.vo.msecnd.net/[...]/product-[...]-medium --\n\n\n\n\n\nline_item.featured_image(size)\n\n\nAn alias for \ndefault_image\n\n\nline_item.id\n\n\nThe line item internal Id.\n\n\nline_item.product_name\n\n\nAlways return the name of the base \nproduct\n.\n\n\n{{ line_item.product_name }}\n\n!-- Outputs: Samsung Galaxy S8 --\n\n\n\n\n\nline_item.variant_name\n\n\nReturns the name of the current \nvariant\n if any.\n\n\nExample\n\n\n{{ line_item.variant_name }}\n\n!-- Outputs: 25GB \u2022 Black --\n\n\n\n\n\nline_item.product_url\n\n\nReturns the url of the base \nproduct\n or the selected variant.\n\n\nline_item.product_compare_at_price\n\n\nReturns the compare at price of the \nbase product\n or the \nselected variant\n.\n\n\nline_item.product_price\n\n\nReturns the price of the \nbase product\n or the \nselected variant\n.\n\n\nline_item.line_compare_at_price\n\n\nReturns the \ncompare at price\n of the line item.\n\nIt is the \nproduct compare at price\n multiplied by the \nquantity\n.\n\n\nExample\n\n\n{{ line_item.product_compare_at_price }}\n\n!-- Outputs: 12 --\n\n\n{{ line_item.quantity }}\n\n!-- Outputs: 8 --\n\n\n{{ linet_item.line_compare_at_price }}\n\n!-- Outputs: 96 --\n\n\n\n\n\nline_item.line_price\n\n\nRetunrs the total price of the line.\nIt is the \nproduct price\n muliplied by the quantity.\n\n\nline_item.quantity\n\n\nReturns the quantity of the selected \nproduct", 
+            "text": "line_item.product\n\n\nReturns the \nproduct\n associated with the line item.\n\nThis value is \nnil\n if the product has one or more \nvariants\n\n\nline_item.product_or_variant\n\n\nIf the \nproduct\n associated with the current item has a \nvariant\n, the selected variant is returned.\n\nOtherwise product itself is returned.\n\n\nline_item.default_image\n\n\nReturns the default image for this line item.\n\n\nExample\n\n\n{{ line_item.default_image }}\n\n!-- Outputs the master image: //az763220.vo.msecnd.net/[...]/product-[...]-master --\n\n\n{{ line_item.default_image | img_url: 'medium' }}\n\n!-- Outputs the medium size image: //az763220.vo.msecnd.net/[...]/product-[...]-medium --\n\n\n\n\n\nline_item.featured_image\n\n\nAn alias for \ndefault_image\n\n\nline_item.id\n\n\nThe line item internal Id.\n\n\nline_item.product_name\n\n\nAlways return the name of the base \nproduct\n.\n\n\n{{ line_item.product_name }}\n\n!-- Outputs: Samsung Galaxy S8 --\n\n\n\n\n\nline_item.variant_name\n\n\nReturns the name of the current \nvariant\n if any.\n\n\nExample\n\n\n{{ line_item.variant_name }}\n\n!-- Outputs: 25GB \u2022 Black --\n\n\n\n\n\nline_item.product_url\n\n\nReturns the url of the base \nproduct\n or the selected variant.\n\n\nline_item.product_compare_at_price\n\n\nReturns the compare at price of the \nbase product\n or the \nselected variant\n.\n\n\nline_item.product_price\n\n\nReturns the price of the \nbase product\n or the \nselected variant\n.\n\n\nline_item.line_compare_at_price\n\n\nReturns the \ncompare at price\n of the line item.\n\nIt is the \nproduct compare at price\n multiplied by the \nquantity\n.\n\n\nExample\n\n\n{{ line_item.product_compare_at_price }}\n\n!-- Outputs: 12 --\n\n\n{{ line_item.quantity }}\n\n!-- Outputs: 8 --\n\n\n{{ linet_item.line_compare_at_price }}\n\n!-- Outputs: 96 --\n\n\n\n\n\nline_item.line_price\n\n\nRetunrs the total price of the line.\nIt is the \nproduct price\n muliplied by the quantity.\n\n\nline_item.quantity\n\n\nReturns the quantity of the selected \nproduct", 
             "title": "Line Item"
         }, 
         {
@@ -421,14 +421,14 @@
             "title": "line_item.product_or_variant"
         }, 
         {
-            "location": "/liquid/line-item/#line_itemdefault_imagesize", 
+            "location": "/liquid/line-item/#line_itemdefault_image", 
             "text": "Returns the default image for this line item.  Example  {{ line_item.default_image }} !-- Outputs the master image: //az763220.vo.msecnd.net/[...]/product-[...]-master -- \n\n{{ line_item.default_image | img_url: 'medium' }} !-- Outputs the medium size image: //az763220.vo.msecnd.net/[...]/product-[...]-medium --", 
-            "title": "line_item.default_image(size)"
+            "title": "line_item.default_image"
         }, 
         {
-            "location": "/liquid/line-item/#line_itemfeatured_imagesize", 
+            "location": "/liquid/line-item/#line_itemfeatured_image", 
             "text": "An alias for  default_image", 
-            "title": "line_item.featured_image(size)"
+            "title": "line_item.featured_image"
         }, 
         {
             "location": "/liquid/line-item/#line_itemid", 
@@ -602,7 +602,7 @@
         }, 
         {
             "location": "/liquid/shop/", 
-            "text": "shop.name\n\n\nReturns the shop's name.\n\n\nshop.decription\n\n\nReturn the shop's description.\n\n\nshop.currency_code\n\n\nReturns the shop's default three-letter \nISO 4217\n currency code (ex: USD).\n\n\nshop.currency_symbol\n\n\nReturns the shop's currency \nISO 4217\n symbol (ex: $).\n\n\nshop.currency_name\n\n\nReturns the shop's currency name (ex: \"American Dollars\").\n\n\nshop.vat_id\n\n\nReturns the vat id of the current shop.\n\n\nshop.domain\n\n\nReturns the primary domain of the shop.\n\n\nshop.permanent_domain\n\n\nReturns a \nshop-name\n.\nagency-domain\n.com\n URL of the current shop.\n\n\nshop.url\n\n\nReturns the full url for the current shop\n\n\nExample\n\n\n{{ shop.url }}\n\n!-- Outputs: http://www.my-shop.com --\n\n\n\n\n\nIf the agency domain is not set a \nshop-name\n.johndoeshop.com\n domain is returned.\n\n\nshop.address\n\n\nReturns the \naddress\n of the shop\n\n\nshop.latest_products\n\n\nRefer to \nMachine Learning\n.\n\n\nshop.best_sellers\n\n\nRefer to \nMachine Learning\n.\n\n\nshop.trending_products\n\n\nRefer to \nMachine Learning\n.\n\n\nshop.social_links\n\n\nReturns a list of the shop's social networks pages.\n\n\nExample\n\n\n{{ shop.social_links.facebook }}\n\n!-- Outputs: https://www.facebook.com/johndoeshop --\n\n\n\n\n\nshop.categories_count\n\n\nReturns the number of the root categories of the current shop.\n\n\nshop.deep_categories_count\n\n\nReturns the number of all the categories of the current shop.\n\n\nshop.languages\n\n\nReturns a list of the available languages for the current shop.\n\n\nEach language has the following properties:\n\n\n\n\n\n\n\n\nProperty\n\n\nSample value\n\n\n\n\n\n\n\n\n\n\nname\n\n\nItalian\n\n\n\n\n\n\ncode\n\n\nit\n\n\n\n\n\n\nurl\n\n\n/set_language/it\n\n\n\n\n\n\n\n\nshop.products_count\n\n\nReturns the number of all the products for the current shop.\n\n\nshop.ship_to_countries\n\n\nReturns a collection of \ncountries\n that have at least one shipping method available. \n\n\nshop.enabled_payment_types\n\n\nReturns a list of the enabled payment processors.\n\n\nExample\n\n\n{{ shop.enabled_payment_types }}\n\n!-- Outputs: ['paypal', 'braintree'] --\n\n\n\n\n\nshop.locale\n\n\nReturns the current selected locale.\n\n\nAlias for \ncustomer.locale\n\n\nshop.description\n\n\nReturns the current shop's description.\n\n\nshop.name\n\n\nReturns the current shop's name.\n\n\nshop.agency_name\n\n\nReturns the name of the shop's agency.\n\n\nshop.agency_url\n\n\nReturn the url of the shop's agency.", 
+            "text": "shop.name\n\n\nReturns the shop's name.\n\n\nshop.decription\n\n\nReturn the shop's description.\n\n\nshop.currency_code\n\n\nReturns the shop's permanent three-letter \nISO 4217\n currency code (ex: USD).\n\n\nshop.currency_symbol\n\n\nReturns the shop's permanent currency \nISO 4217\n symbol (ex: $).\n\n\nshop.currency_name\n\n\nReturns the shop's permanent currency name (ex: \"American Dollars\").\n\n\nshop.vat_id\n\n\nReturns the vat id of the current shop.\n\n\nshop.domain\n\n\nReturns the primary domain of the shop.\n\n\nshop.permanent_domain\n\n\nReturns a \nshop-name\n.\nagency-domain\n.com\n URL of the current shop.\n\n\nshop.url\n\n\nReturns the full url for the current shop\n\n\nExample\n\n\n{{ shop.url }}\n\n!-- Outputs: http://www.my-shop.com --\n\n\n\n\n\nIf the agency domain is not set a \nshop-name\n.johndoeshop.com\n domain is returned.\n\n\nshop.address\n\n\nReturns the \naddress\n of the shop\n\n\nshop.latest_products\n\n\nRefer to \nMachine Learning\n.\n\n\nshop.best_sellers\n\n\nRefer to \nMachine Learning\n.\n\n\nshop.trending_products\n\n\nRefer to \nMachine Learning\n.\n\n\nshop.social_links\n\n\nReturns a list of the shop's social networks pages.\n\n\nExample\n\n\n{{ shop.social_links.facebook }}\n\n!-- Outputs: https://www.facebook.com/johndoeshop --\n\n\n\n\n\nshop.categories_count\n\n\nReturns the number of the root categories of the current shop.\n\n\nshop.deep_categories_count\n\n\nReturns the number of all the categories of the current shop.\n\n\nshop.languages\n\n\nReturns a list of the available languages for the current shop.\n\n\nEach language has the following properties:\n\n\n\n\n\n\n\n\nProperty\n\n\nSample value\n\n\n\n\n\n\n\n\n\n\nname\n\n\nItalian\n\n\n\n\n\n\ncode\n\n\nit\n\n\n\n\n\n\nurl\n\n\n/set_language/it\n\n\n\n\n\n\n\n\nshop.products_count\n\n\nReturns the number of all the products for the current shop.\n\n\nshop.ship_to_countries\n\n\nReturns a collection of \ncountries\n that have at least one shipping method available. \n\n\nshop.enabled_payment_types\n\n\nReturns a list of the enabled payment processors.\n\n\nExample\n\n\n{{ shop.enabled_payment_types }}\n\n!-- Outputs: ['paypal', 'braintree'] --\n\n\n\n\n\nshop.locale\n\n\nReturns the current two-letter \nISO 3166\n language code .\n\n\nshop.description\n\n\nReturns the current shop's description.\n\n\nshop.name\n\n\nReturns the current shop's name.\n\n\nshop.agency_name\n\n\nReturns the name of the shop's agency.\n\n\nshop.agency_url\n\n\nReturn the url of the shop's agency.", 
             "title": "Shop"
         }, 
         {
@@ -617,17 +617,17 @@
         }, 
         {
             "location": "/liquid/shop/#shopcurrency_code", 
-            "text": "Returns the shop's default three-letter  ISO 4217  currency code (ex: USD).", 
+            "text": "Returns the shop's permanent three-letter  ISO 4217  currency code (ex: USD).", 
             "title": "shop.currency_code"
         }, 
         {
             "location": "/liquid/shop/#shopcurrency_symbol", 
-            "text": "Returns the shop's currency  ISO 4217  symbol (ex: $).", 
+            "text": "Returns the shop's permanent currency  ISO 4217  symbol (ex: $).", 
             "title": "shop.currency_symbol"
         }, 
         {
             "location": "/liquid/shop/#shopcurrency_name", 
-            "text": "Returns the shop's currency name (ex: \"American Dollars\").", 
+            "text": "Returns the shop's permanent currency name (ex: \"American Dollars\").", 
             "title": "shop.currency_name"
         }, 
         {
@@ -707,7 +707,7 @@
         }, 
         {
             "location": "/liquid/shop/#shoplocale", 
-            "text": "Returns the current selected locale.  Alias for  customer.locale", 
+            "text": "Returns the current two-letter  ISO 3166  language code .", 
             "title": "shop.locale"
         }, 
         {
@@ -1067,12 +1067,47 @@
         }, 
         {
             "location": "/machine-learning/", 
-            "text": "", 
+            "text": "shop.best_sellers\n\n\nReturns a collection of the best selling \nproducts\n\n\nNote\n: This function returns a maximum of 16 products.\n\n\nshop.trending_products\n\n\nReturns a collectio of the trending \nproducts\n\n\nNote\n: This function returns a maximum of 16 products.\n\n\nshop.latest_products\n\n\nReturn a collectio of the most recent \nproducts\n\n\nNote\n: This function returns a maximum of 16 products.\n\n\ncustomer.recommended_products\n\n\nReturns a collection of the recommended \nproducts\n for the current customer\n\n\nNote:\n When a user first visits your store, this function may take up to 1 minute to classify the customer. The maximum number of items returned is 16.\n\n\ncustomer.may_also_like\n\n\nReturns a collection of \nproducts\n that the customer may like\n\n\nNote:\n When a user first visits your store, this function may take up to 1 minute to classify the customer. The maximum number of items returned is 16.\n\n\ncustomer.recently_viewed\n\n\nReturns a collection of the \nproducts\n that the customer recently visited.\n\n\nNote:\n When a user first visits your store, this function may take up to 1 minute to classify the customer. The maximum number of items returned is 16.\n\n\nproduct.frequently_bought_together\n\n\nReturns a collection of \nproducts\n that are frequently bought with the selected one.", 
             "title": "Machine Learning"
         }, 
         {
+            "location": "/machine-learning/#shopbest_sellers", 
+            "text": "Returns a collection of the best selling  products  Note : This function returns a maximum of 16 products.", 
+            "title": "shop.best_sellers"
+        }, 
+        {
+            "location": "/machine-learning/#shoptrending_products", 
+            "text": "Returns a collectio of the trending  products  Note : This function returns a maximum of 16 products.", 
+            "title": "shop.trending_products"
+        }, 
+        {
+            "location": "/machine-learning/#shoplatest_products", 
+            "text": "Return a collectio of the most recent  products  Note : This function returns a maximum of 16 products.", 
+            "title": "shop.latest_products"
+        }, 
+        {
+            "location": "/machine-learning/#customerrecommended_products", 
+            "text": "Returns a collection of the recommended  products  for the current customer  Note:  When a user first visits your store, this function may take up to 1 minute to classify the customer. The maximum number of items returned is 16.", 
+            "title": "customer.recommended_products"
+        }, 
+        {
+            "location": "/machine-learning/#customermay_also_like", 
+            "text": "Returns a collection of  products  that the customer may like  Note:  When a user first visits your store, this function may take up to 1 minute to classify the customer. The maximum number of items returned is 16.", 
+            "title": "customer.may_also_like"
+        }, 
+        {
+            "location": "/machine-learning/#customerrecently_viewed", 
+            "text": "Returns a collection of the  products  that the customer recently visited.  Note:  When a user first visits your store, this function may take up to 1 minute to classify the customer. The maximum number of items returned is 16.", 
+            "title": "customer.recently_viewed"
+        }, 
+        {
+            "location": "/machine-learning/#productfrequently_bought_together", 
+            "text": "Returns a collection of  products  that are frequently bought with the selected one.", 
+            "title": "product.frequently_bought_together"
+        }, 
+        {
             "location": "/checkout/", 
-            "text": "Cart review\n\n\nLiquid tags\n\n\n\n\ncheckout_flow\n: true\n\n\ncheckout_step\n: 1\n\n\n\n\nRequest\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/cart\n\n\n\n\n\n\nShipping details\n\n\nLiquid tags\n\n\n\n\ncheckout_flow\n: true\n\n\ncheckout_step\n: 2\n\n\n\n\nRequest\n\n\n\n\nMethod: \nGET\n \nPOST\n\n\nURL: \n/checkout\n \n\n\nParameters:\n\n\ncheckout[shipping_address][first_name]\n\n\ncheckout[shipping_address][last_name]\n\n\n\n\n\n\nPayment\n\n\nLiquid tags\n\n\n\n\ncheckout_flow\n: true\n\n\ncheckout_step\n: 3\n\n\n\n\nRequest\n\n\n\n\nMethod: \nPOST\n\n\nURL: \n/cart/payment\n\n\n\n\n NOTE: \n Do \nnot\n in any way for any reason try to modify the standard behaviour of the payment buttons. The payment buttons are meant to be PCI DSS compliant, and you cannot modify them.\n\nIf you find there is some problem with these buttons, or you have any request please don't hesitate to contact us.\n\n\nOrder completed\n\n\nLiquid tags\n\n\n\n\ncheckout_flow\n: true\n\n\ncheckout_step\n: 4", 
+            "text": "Cart review\n\n\nLiquid tags\n\n\n\n\ncheckout_flow\n: true\n\n\ncheckout_step\n: 1\n\n\n\n\nRequest\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/cart\n\n\n\n\n\n\nShipping details\n\n\nLiquid tags\n\n\n\n\ncheckout_flow\n: true\n\n\ncheckout_step\n: 2\n\n\n\n\nRequest\n\n\n\n\nMethod: \nGET\n \nPOST\n\n\nURL: \n/checkout\n\n\n\n\n\n\nPayment\n\n\nLiquid tags\n\n\n\n\ncheckout_flow\n: true\n\n\ncheckout_step\n: 3\n\n\n\n\nRequest\n\n\n\n\nMethod: \nPOST\n\n\nURL: \n/cart/payment\n\n\nParameters:\n\n\ncheckout[shipping_address][first_name]\n\n\ncheckout[shipping_address][last_name]\n\n\n\n\n\n\n\n\n NOTE: \n Do \nnot\n in any way for any reason try to modify the standard behaviour of the payment buttons. The payment buttons are meant to be PCI DSS compliant, and you cannot modify them.\n\nIf you find there is some problem with these buttons, or you have any request please don't hesitate to contact us.\n\n\n\n\nOrder completed\n\n\nLiquid tags\n\n\n\n\ncheckout_flow\n: true\n\n\ncheckout_step\n: 4\n\n\norder\n\n\n\n\nRequest\n\n\n\n\nMethod: \nGET\n\n\nURL: \n/cart/payment_success\n \n/cart/payment_failed\n\n\nParameters:\n\n\nemail\n\n\norder\n\n\n\n\n\n\n\n\nParameters\n\n\n\n\nemail\n: The email associated to the order \n\n\norder\n: Can be both the \norder internal Id\n or the \norder counter\n without any prefix or suffix.", 
             "title": "Checkout Flow"
         }, 
         {
@@ -1102,7 +1137,7 @@
         }, 
         {
             "location": "/checkout/#request_1", 
-            "text": "Method:  GET   POST  URL:  /checkout    Parameters:  checkout[shipping_address][first_name]  checkout[shipping_address][last_name]", 
+            "text": "Method:  GET   POST  URL:  /checkout", 
             "title": "Request"
         }, 
         {
@@ -1117,7 +1152,7 @@
         }, 
         {
             "location": "/checkout/#request_2", 
-            "text": "Method:  POST  URL:  /cart/payment    NOTE:   Do  not  in any way for any reason try to modify the standard behaviour of the payment buttons. The payment buttons are meant to be PCI DSS compliant, and you cannot modify them. \nIf you find there is some problem with these buttons, or you have any request please don't hesitate to contact us.", 
+            "text": "Method:  POST  URL:  /cart/payment  Parameters:  checkout[shipping_address][first_name]  checkout[shipping_address][last_name]      NOTE:   Do  not  in any way for any reason try to modify the standard behaviour of the payment buttons. The payment buttons are meant to be PCI DSS compliant, and you cannot modify them. \nIf you find there is some problem with these buttons, or you have any request please don't hesitate to contact us.", 
             "title": "Request"
         }, 
         {
@@ -1127,8 +1162,18 @@
         }, 
         {
             "location": "/checkout/#liquid-tags_3", 
-            "text": "checkout_flow : true  checkout_step : 4", 
+            "text": "checkout_flow : true  checkout_step : 4  order", 
             "title": "Liquid tags"
+        }, 
+        {
+            "location": "/checkout/#request_3", 
+            "text": "Method:  GET  URL:  /cart/payment_success   /cart/payment_failed  Parameters:  email  order", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/checkout/#parameters", 
+            "text": "email : The email associated to the order   order : Can be both the  order internal Id  or the  order counter  without any prefix or suffix.", 
+            "title": "Parameters"
         }, 
         {
             "location": "/javascript/", 

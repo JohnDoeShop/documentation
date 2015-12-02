@@ -182,10 +182,10 @@
                 <li class="toctree-l3"><a href="#line_itemproduct_or_variant">line_item.product_or_variant</a></li>
                 
             
-                <li class="toctree-l3"><a href="#line_itemdefault_imagesize">line_item.default_image(size)</a></li>
+                <li class="toctree-l3"><a href="#line_itemdefault_image">line_item.default_image</a></li>
                 
             
-                <li class="toctree-l3"><a href="#line_itemfeatured_imagesize">line_item.featured_image(size)</a></li>
+                <li class="toctree-l3"><a href="#line_itemfeatured_image">line_item.featured_image</a></li>
                 
             
                 <li class="toctree-l3"><a href="#line_itemid">line_item.id</a></li>
@@ -398,7 +398,7 @@ This value is <code>nil</code> if the product has one or more <a href="../varian
 <h1 id="line_itemproduct_or_variant">line_item.product_or_variant</h1>
 <p>If the <a href="../product/">product</a> associated with the current item has a <a href="../variant/">variant</a>, the selected variant is returned.<br />
 Otherwise product itself is returned.</p>
-<h1 id="line_itemdefault_imagesize">line_item.default_image(size)</h1>
+<h1 id="line_itemdefault_image">line_item.default_image</h1>
 <p>Returns the default image for this line item.</p>
 <p><em>Example</em></p>
 <pre><code class="liquid">{{ line_item.default_image }}
@@ -408,8 +408,8 @@ Otherwise product itself is returned.</p>
 &lt;!-- Outputs the medium size image: //az763220.vo.msecnd.net/[...]/product-[...]-medium --&gt;
 </code></pre>
 
-<h1 id="line_itemfeatured_imagesize">line_item.featured_image(size)</h1>
-<p>An alias for <a href="./#product.default_image">default_image</a></p>
+<h1 id="line_itemfeatured_image">line_item.featured_image</h1>
+<p>An alias for <a href="./#line_itemdefault_image">default_image</a></p>
 <h1 id="line_itemid">line_item.id</h1>
 <p>The line item internal Id.</p>
 <h1 id="line_itemproduct_name">line_item.product_name</h1>
@@ -433,7 +433,7 @@ Otherwise product itself is returned.</p>
 <p>Returns the price of the <a href="../product/">base product</a> or the <a href="../variant/">selected variant</a>.</p>
 <h1 id="line_itemline_compare_at_price">line_item.line_compare_at_price</h1>
 <p>Returns the <code>compare at price</code> of the line item.<br />
-It is the <a href="line_item.md#line_item.product_compare_at_price">product compare at price</a> multiplied by the <a href="line_item.md#line_item.quantity">quantity</a>.</p>
+It is the <a href="./#line_itemproduct_compare_at_price">product compare at price</a> multiplied by the <a href="./#line_itemquantity">quantity</a>.</p>
 <p><em>Example</em></p>
 <pre><code class="liquid">{{ line_item.product_compare_at_price }}
 &lt;!-- Outputs: 12 --&gt;
@@ -447,7 +447,7 @@ It is the <a href="line_item.md#line_item.product_compare_at_price">product comp
 
 <h1 id="line_itemline_price">line_item.line_price</h1>
 <p>Retunrs the total price of the line.
-It is the <a href="line_item.md#line_item.product_price">product price</a> muliplied by the quantity.</p>
+It is the <a href="./#line_itemproduct_price">product price</a> muliplied by the quantity.</p>
 <h1 id="line_itemquantity">line_item.quantity</h1>
 <p>Returns the quantity of the selected <a href="../product/">product</a></p>
               

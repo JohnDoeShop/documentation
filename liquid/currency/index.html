@@ -366,13 +366,27 @@
             <div class="section">
               
                 <h1 id="currencysymbol">currency.symbol</h1>
-<p>Returns the currency's <a href="https://en.wikipedia.org/wiki/Currency_symbol">symbol</a>.</p>
+<p>Returns the <a href="https://en.wikipedia.org/wiki/Currency_symbol">currency symbol</a>.</p>
+<p><em>Example</em></p>
+<pre><code class="liquid">{{ currency.symbol }}
+&lt;!-- Outputs: $ --&gt;
+</code></pre>
+
 <h1 id="currencyid">currency.id</h1>
-<p>Returns the currency's internal Id.</p>
+<p>Returns the currency internal Id.</p>
 <h1 id="currencycode">currency.code</h1>
-<p>Returns the currency's <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> code.</p>
+<p><em>Example</em></p>
+<pre><code class="liquid">{{ currency.code }}
+&lt;!-- Outputs: USD --&gt;
+</code></pre>
+
+<p>Returns a three-letters <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code.</p>
 <h1 id="currencyname">currency.name</h1>
-<p>Returns the currency's full human-readable name.</p>
+<p>Returns the full currency name.</p>
+<p><em>Example</em></p>
+<pre><code class="liquid">{{ currency.name }}
+&lt;!-- Outputs: Euro --&gt;
+</code></pre>
               
             </div>
           </div>
