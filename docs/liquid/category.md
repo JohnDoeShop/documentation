@@ -4,7 +4,7 @@ Returns the name of the category.
 
 # category.title
 
-An alias for [name](category.md#category.name)
+An alias for [name](category.md#categoryname)
 
 # category.friendly_name
 
@@ -12,7 +12,7 @@ Returns the friendly name of the category.
 
 # category.handle
 
-An alias for [friendly_name](category.md#category.friendly_name)
+An alias for [friendly_name](category.md#categoryfriendly_name)
 
 # category.id
 
@@ -87,11 +87,11 @@ Returns the image of the category.
 
 # category.default_image
 
-An alias for [image](category.md#category.image).
+An alias for [image](category.md#categoryimage).
 
 # category.featured_image
 
-An alias for [image](category.md#category.image).
+An alias for [image](category.md#categoryimage).
 
 # category.url
 

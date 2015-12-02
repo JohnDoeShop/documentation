@@ -13,7 +13,7 @@ Returns wether or not the [billing address](address.md) is the same as the [ship
 # order.billing_address
 
 Returns the [billing address](address.md) of the order.
-This can be nil in case the [different_billing_address](order.md#order.different_billing_address) is set to false.
+This can be nil in case the [different_billing_address](order.md#orderdifferent_billing_address) is set to false.
 
 # order.shipping_address
 

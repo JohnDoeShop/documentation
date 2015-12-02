@@ -8,7 +8,7 @@ Returns the name of the shipping method
 
 # shipping_method.title
 
-An alias for [name](shipping-method.md#shipping_method.name).
+An alias for [name](shipping-method.md#shipping_methodname).
 
 # shipping_method.price
 

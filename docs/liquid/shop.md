@@ -8,15 +8,15 @@ Return the shop's description.
 
 # shop.currency_code
 
-Returns the shop's default three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code (ex: USD).
+Returns the shop's permanent three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code (ex: USD).
 
 # shop.currency_symbol
 
-Returns the shop's currency [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) symbol (ex: $).
+Returns the shop's permanent currency [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) symbol (ex: $).
 
 # shop.currency_name
 
-Returns the shop's currency name (ex: "American Dollars").
+Returns the shop's permanent currency name (ex: "American Dollars").
 
 # shop.vat_id
 
@@ -48,15 +48,15 @@ Returns the [address](address.md) of the shop
 
 # shop.latest_products
 
-Refer to [Machine Learning](machine-learning.md#shop.latest_products).
+Refer to [Machine Learning](../machine-learning.md#shoplatest_products).
 
 # shop.best_sellers
 
-Refer to [Machine Learning](machine-learning.md#shop.best_sellers).
+Refer to [Machine Learning](../machine-learning.md#shopbest_sellers).
 
 # shop.trending_products
 
-Refer to [Machine Learning](machine_learning.md#shop.trending_products).
+Refer to [Machine Learning](../machine-learning.md#shoptrending_products).
 
 # shop.social_links
 
@@ -109,9 +109,7 @@ Returns a list of the enabled payment processors.
 
 # shop.locale
 
-Returns the current selected locale.
-
-Alias for [customer.locale](customer.md#customer.locale)
+Returns the current two-letter [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) language code .
 
 # shop.description
 

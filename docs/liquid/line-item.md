@@ -8,7 +8,7 @@ This value is `nil` if the product has one or more [variants](variant.md)
 If the [product](product.md) associated with the current item has a [variant](variant.md), the selected variant is returned.  
 Otherwise product itself is returned.
 
-# line_item.default_image(size)
+# line_item.default_image
 
 Returns the default image for this line item.
 
@@ -21,9 +21,9 @@ Returns the default image for this line item.
 <!-- Outputs the medium size image: //az763220.vo.msecnd.net/[...]/product-[...]-medium -->
 ```
  
-# line_item.featured_image(size)
+# line_item.featured_image
 
-An alias for [default_image](line-item.md#product.default_image)
+An alias for [default_image](line-item.md#line_itemdefault_image)
 
 # line_item.id
 
@@ -64,7 +64,7 @@ Returns the price of the [base product](product.md) or the [selected variant](va
 # line_item.line_compare_at_price
 
 Returns the `compare at price` of the line item.  
-It is the [product compare at price](line_item.md#line_item.product_compare_at_price) multiplied by the [quantity](line_item.md#line_item.quantity).
+It is the [product compare at price](line-item.md#line_itemproduct_compare_at_price) multiplied by the [quantity](line-item.md#line_itemquantity).
 
 *Example*
 ```liquid
@@ -81,7 +81,7 @@ It is the [product compare at price](line_item.md#line_item.product_compare_at_p
 # line_item.line_price
 
 Retunrs the total price of the line.
-It is the [product price](line_item.md#line_item.product_price) muliplied by the quantity.
+It is the [product price](line-item.md#line_itemproduct_price) muliplied by the quantity.
 
 # line_item.quantity
 

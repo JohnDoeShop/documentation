@@ -19,7 +19,7 @@ Returns the name of the link.
 
 # link.title
 
-An alias for [name](link.md#link.name).
+An alias for [name](link.md#linkname).
 
 # link.type
 

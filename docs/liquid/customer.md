@@ -32,13 +32,13 @@ Returns the id of the current customer.
 
 # customer.recommended_products
 
-Refer to [Machine Learning](machine-learning.md#customer.recommended_products).
+Refer to [Machine Learning](../machine-learning.md#customerrecommended_products).
 
 # customer.may_also_like
 
-Refer to [Machine Learning](machine-learning.md#customer.may_also_like).
+Refer to [Machine Learning](../machine-learning.md#customermay_also_like).
 
 # customer.recently_viewed
 
-Refer to [Machine Learning](machine-learning.md#customer.recently_viewed).
+Refer to [Machine Learning](../machine-learning.md#customerrecently_viewed).
 

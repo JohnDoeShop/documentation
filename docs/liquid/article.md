@@ -33,11 +33,11 @@ Returns the image of the article
 
 # article.default_image
 
-An alias for [image](article.md#article.image).
+An alias for [image](article.md#articleimage).
 
 # article.featured_image
 
-An alias for [image](article.md#article.image).
+An alias for [image](article.md#articleimage).
 
 # article.name
 
@@ -53,7 +53,7 @@ Returns the next article.
 
 # article.title
 
-An alias for [name](article.md#article.name)
+An alias for [name](article.md#articlename)
 
 # article.created_at
 
