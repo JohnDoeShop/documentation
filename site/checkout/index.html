@@ -323,6 +323,10 @@
                 
                     <li><a class="toctree-l4" href="#liquid-tags_3">Liquid tags</a></li>
                 
+                    <li><a class="toctree-l4" href="#request_3">Request</a></li>
+                
+                    <li><a class="toctree-l4" href="#parameters">Parameters</a></li>
+                
             
             </ul>
         
@@ -396,10 +400,7 @@
 <h2 id="request_1">Request</h2>
 <ul>
 <li>Method: <code>GET</code> <code>POST</code></li>
-<li>URL: <code>/checkout</code> </li>
-<li>Parameters:</li>
-<li>checkout[shipping_address][first_name]</li>
-<li>checkout[shipping_address][last_name]</li>
+<li>URL: <code>/checkout</code></li>
 </ul>
 <hr />
 <h1 id="payment">Payment</h1>
@@ -412,14 +413,36 @@
 <ul>
 <li>Method: <code>POST</code></li>
 <li>URL: <code>/cart/payment</code></li>
+<li>Parameters:<ul>
+<li><code>checkout[shipping_address][first_name]</code></li>
+<li><code>checkout[shipping_address][last_name]</code></li>
+</ul>
+</li>
 </ul>
 <p><strong> NOTE: </strong> Do <em>not</em> in any way for any reason try to modify the standard behaviour of the payment buttons. The payment buttons are meant to be PCI DSS compliant, and you cannot modify them.<br />
 If you find there is some problem with these buttons, or you have any request please don't hesitate to contact us.</p>
+<hr />
 <h1 id="order-completed">Order completed</h1>
 <h2 id="liquid-tags_3">Liquid tags</h2>
 <ul>
 <li><code>checkout_flow</code>: true</li>
 <li><code>checkout_step</code>: 4</li>
+<li><code>order</code></li>
+</ul>
+<h2 id="request_3">Request</h2>
+<ul>
+<li>Method: <code>GET</code></li>
+<li>URL: <code>/cart/payment_success</code> <code>/cart/payment_failed</code></li>
+<li>Parameters:<ul>
+<li><code>email</code></li>
+<li><code>order</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>email</code>: The email associated to the order </li>
+<li><code>order</code>: Can be both the <a href="order.md#orderid">order internal Id</a> or the <a href="order.md#ordercounter">order counter</a> without any prefix or suffix.</li>
 </ul>
               
             </div>
