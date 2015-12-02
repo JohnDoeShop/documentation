@@ -12,7 +12,6 @@ pages:
         - Currencies: 'liquid/currencies.md'
         - 'Link Lists': 'liquid/link-lists.md'
         - Pages: 'liquid/pages.md'
-
       - 'Generic':
         - Address: 'liquid/address.md'
         - Cart: 'liquid/cart.md'
@@ -26,7 +25,6 @@ pages:
         - User: 'liquid/user.md'
         - 'Shipping Method': 'liquid/shipping-method.md'
         - Shop: 'liquid/shop.md'
-
       - 'Template specific':
         - Article: 'liquid/article.md'
         - Category: 'liquid/category.md'
