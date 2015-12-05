@@ -96,3 +96,11 @@ An alias for [image](category.md#categoryimage).
 # category.url
 
 Returns the category url.
+
+# category.parent
+
+Returns the parent category, if any.
+
+# category.children
+
+Returns a collection of children categories.
